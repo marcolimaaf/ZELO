@@ -241,7 +241,7 @@ footer{
 
 <nav>
   <div class="nav-logo">ZELO</div>
-  <a href="#contato" class="nav-cta">Solicitar acesso</a>
+  <a href="#contato" class="nav-cta">Piloto — R$ 99,90</a>
 </nav>
 
 <section class="hero">
@@ -249,7 +249,7 @@ footer{
   <h1>Responda aos Tribunais de Contas com a precisão que a complexidade exige.</h1>
   <p class="hero-desc">O ZELO estrutura, fundamenta e redige defesas administrativas para notificações, citações e diligências dos Tribunais de Contas — com IA jurídica treinada na jurisprudência dos TCs brasileiros.</p>
   <div class="hero-actions">
-    <a href="#contato" class="btn-primary">Solicitar acesso antecipado</a>
+    <a href="#contato" class="btn-primary">Garantir vaga — R$ 99,90/mês</a>
     <a href="#como" class="btn-secondary">Como funciona</a>
   </div>
 </section>
@@ -327,10 +327,13 @@ footer{
 
 <section class="section final-cta" id="contato">
   <div class="reveal">
-    <h2 class="section-head">Acesso antecipado para gestores e procuradores</h2>
-    <p class="section-sub" style="margin:0 auto 2rem">Estamos selecionando os primeiros usuários. Preencha abaixo e entraremos em contato com prioridade.</p>
+    <p style="font-family:'DM Serif Display',serif;font-size:clamp(.9rem,2vw,1rem);color:var(--brass);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.5rem">Programa Fundador</p>
+    <h2 class="section-head" style="margin-bottom:.5rem">Garanta sua vaga no piloto</h2>
+    <p style="font-size:2.6rem;font-weight:700;color:var(--brass);font-family:'DM Serif Display',serif;margin:.5rem 0 .2rem">R$&nbsp;99,90<span style="font-size:1rem;font-weight:400;color:var(--text-dim)">/mês</span></p>
+    <p style="font-size:.82rem;color:var(--text-dim);margin-bottom:.3rem">Vagas limitadas — primeiros usuários com acesso prioritário e suporte direto.</p>
+    <p style="font-size:.75rem;color:var(--text-dim);margin-bottom:2rem">Preço de fundador. Após o piloto, o valor será reajustado.</p>
     <form id="zelo-form" action="https://formsubmit.co/marcolimaaf@gmail.com" method="POST" style="max-width:420px;margin:0 auto;text-align:left">
-      <input type="hidden" name="_subject" value="ZELO — Nova solicitação de acesso antecipado">
+      <input type="hidden" name="_subject" value="ZELO — Nova reserva no Programa Fundador (R$ 99,90)">
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_next" value="https://marcolimaaf.github.io/ZELO/?enviado=1">
       <input type="hidden" name="_template" value="table">
@@ -342,11 +345,11 @@ footer{
       <input type="text" name="Orgao" required placeholder="Ex: TCE-BA, CGE, Prefeitura..." style="width:100%;padding:.7rem 1rem;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:#fff;font-size:.9rem;margin-bottom:1rem;font-family:inherit">
       <label style="font-size:.8rem;font-weight:500;letter-spacing:.04em;display:block;margin-bottom:.3rem;color:var(--gold)">Cargo / Função</label>
       <input type="text" name="Cargo" placeholder="Ex: Procurador, Auditor, Advogado..." style="width:100%;padding:.7rem 1rem;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:#fff;font-size:.9rem;margin-bottom:1.5rem;font-family:inherit">
-      <button type="submit" class="btn-primary" style="width:100%;border:none;cursor:pointer;text-align:center">Solicitar acesso antecipado</button>
+      <button type="submit" class="btn-primary" style="width:100%;border:none;cursor:pointer;text-align:center">Reservar vaga no piloto</button>
     </form>
     <script>
     if(new URLSearchParams(window.location.search).get('enviado')==='1'){
-      document.getElementById('zelo-form').innerHTML='<p style="text-align:center;color:var(--gold);font-size:1.1rem;padding:2rem 0">✓ Solicitação recebida! Entraremos em contato em breve.</p>';
+      document.getElementById('zelo-form').innerHTML='<p style="text-align:center;color:var(--brass);font-size:1.1rem;padding:2rem 0">✓ Vaga reservada! Entraremos em contato com as instruções de acesso e pagamento.</p>';
       document.getElementById('contato').scrollIntoView({behavior:'smooth'});
     }
     </script>

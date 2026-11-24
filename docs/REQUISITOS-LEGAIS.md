@@ -2,6 +2,23 @@
 
 > Checklist de trabalho, não parecer jurídico. Valide os pontos marcados com ⚠️ com um advogado de confiança (idealmente com experiência em ética da OAB) antes de cobrar o primeiro cliente.
 
+## 0. Decisão atual (25/11/2026): lançar como advogado pessoa física
+
+**Pode lançar com a sua OAB, como pessoa física?** Sim. Advogado inscrito pode advogar em nome próprio, sem sociedade. Sociedade (plural ou unipessoal) é opcional e serve para tributar menos e separar patrimônio, não é requisito para atuar.
+
+O que muda por ser pessoa física:
+
+- **Identificação:** toda publicidade precisa trazer o nome do advogado e o nº de inscrição (OAB/BA 59.873). "Zelo" aparece como nome do método e da área do cliente, não como nome de escritório. Sociedade de advogados não pode usar denominação de fantasia (EAOAB, art. 16).
+- **Preço fora do site:** o Provimento 205/2021 proíbe mencionar valores de honorários, forma de pagamento, gratuidade ou descontos como forma de captação. O plano de R$ 99,90 saiu do site; todos os serviços agora são "proposta individual".
+- **Sem venda de software:** sem CNPJ, não dá para cobrar assinatura da plataforma de forma limpa. A área do cliente fica gratuita para quem é atendido.
+- **Tributação:** honorários recebidos como pessoa física entram no carnê-leão (tabela progressiva, até 27,5%) e no ISS de autônomo do município. Faça a inscrição municipal como profissional autônomo para emitir nota/recibo. Recibo com CPF e nº OAB.
+- **Contrato de honorários escrito** com cada cliente.
+- **Atuação fora da BA:** inscrição suplementar na seccional de outro estado se passar de 5 causas por ano lá (EAOAB, art. 10, §2º). ⚠️ Confirmar se a seccional conta processos em Tribunal de Contas.
+
+**Próximo passo recomendado:** abrir uma **Sociedade Individual de Advocacia** (Lei 13.247/2016). Você sozinho, registrada na OAB-BA (não na Junta), nome obrigatório "[Seu nome] Sociedade Individual de Advocacia", Simples Nacional Anexo IV (alíquota inicial bem abaixo da pessoa física). Peça na OAB-BA o checklist de documentos e taxas.
+
+A legaltech (Ltda. vendendo a plataforma) continua possível depois, como empresa separada.
+
 ## 1. O ponto central: Zelo vende serviço jurídico
 
 Análise, defesa e recurso em Tribunal de Contas são **consultoria, assessoria e postulação jurídica**. Pelo Estatuto da Advocacia (Lei 8.906/1994, art. 1º), consultoria e assessoria jurídicas são atividades **privativas de advogado**. Mesmo que o gestor possa se defender sozinho no TC, uma empresa que **vende** a defesa para terceiros está exercendo advocacia.

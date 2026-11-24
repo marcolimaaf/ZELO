@@ -2,7 +2,7 @@
 
 > Checklist de trabalho, não parecer jurídico. Valide os pontos marcados com ⚠️ com um advogado de confiança (idealmente com experiência em ética da OAB) antes de cobrar o primeiro cliente.
 
-## 0. Decisão atual (25/11/2026): lançar como advogado pessoa física
+## 0. Decisão atual (24/11/2026): lançar como advogado pessoa física
 
 **Pode lançar com a sua OAB, como pessoa física?** Sim. Advogado inscrito pode advogar em nome próprio, sem sociedade. Sociedade (plural ou unipessoal) é opcional e serve para tributar menos e separar patrimônio, não é requisito para atuar.
 

@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Zelo · Estúdio</title>
+<meta name="theme-color" content="#0E0F12">
+<link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--ink:#0E0F12;--ink-2:#16181D;--ink-3:#1F2229;--paper:#F2EDE3;--dim:#B9B3A7;--mute:#8A857B;--lacre:#C2361F;--lacre-hot:#E0472D;--brass:#C9A45C;--brass-soft:#E3C98F;
+  --line:rgba(242,237,227,.10);--line-2:rgba(242,237,227,.18);--serif:'Bodoni Moda',Didot,serif;--sans:'IBM Plex Sans',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace}
+html,body{height:100%}
+body{background:var(--ink);color:var(--paper);font-family:var(--sans);font-size:14.5px;line-height:1.5;-webkit-font-smoothing:antialiased}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:0}
+.top{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 20px;background:rgba(14,15,18,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--paper)}
+.brand svg{width:26px;height:26px}
+.brand b{font-family:var(--serif);font-weight:600;font-size:20px}
+.brand b i{color:var(--lacre);font-style:normal}
+.brand span{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--brass);border-left:1px solid var(--line-2);padding-left:10px}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;font-size:13px;font-weight:500;border:1px solid var(--line-2);transition:all .2s;white-space:nowrap}
+.btn:hover{border-color:var(--brass);color:var(--brass-soft)}
+.btn.lacre{background:var(--lacre);border-color:var(--lacre);color:var(--paper)}
+.btn.lacre:hover{background:var(--lacre-hot);color:var(--paper)}
+.layout{display:grid;grid-template-columns:minmax(380px,520px) 1fr;min-height:calc(100vh - 57px)}
+.side{border-right:1px solid var(--line);overflow-y:auto;max-height:calc(100vh - 57px);position:sticky;top:57px}
+.tabs{display:flex;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--ink);z-index:5}
+.tabs button{flex:1;padding:13px 6px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);border-bottom:2px solid transparent}
+.tabs button.on{color:var(--paper);border-color:var(--lacre)}
+.tabs button .n{display:inline-block;min-width:18px;padding:0 5px;margin-left:4px;background:var(--lacre);color:var(--paper);border-radius:9px;font-size:10px}
+.pane{display:none;padding:20px}
+.pane.on{display:block}
+.h{font-family:var(--serif);font-weight:500;font-size:22px;margin:4px 0 4px}
+.h em{font-style:italic;color:var(--brass-soft);font-weight:400}
+.sub{color:var(--mute);font-size:13px;margin-bottom:16px}
+.grp{border:1px solid var(--line);padding:16px;margin-bottom:14px;background:var(--ink-2)}
+.grp>.lbl{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);margin-bottom:12px;display:flex;justify-content:space-between;align-items:center}
+.f{margin-bottom:11px}
+.f label{display:block;font-size:11.5px;color:var(--mute);margin-bottom:4px}
+.f input,.f select,.f textarea{width:100%;background:var(--ink);border:1px solid var(--line-2);padding:9px 10px;font-size:14px;outline:none;border-radius:0}
+.f textarea{resize:vertical;min-height:70px;line-height:1.5}
+.f input:focus,.f select:focus,.f textarea:focus{border-color:var(--brass)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.three{display:grid;grid-template-columns:1.2fr 1fr .7fr;gap:10px}
+.calc{font-size:12.5px;color:var(--dim);border-left:2px solid var(--brass);padding:6px 10px;margin-top:2px}
+.calc b{color:var(--paper)}
+.achado{border:1px solid var(--line-2);padding:12px;margin-bottom:10px;position:relative}
+.achado .x{position:absolute;top:8px;right:10px;color:var(--mute);font-size:18px}
+.achado .x:hover{color:var(--lacre-hot)}
+.add{width:100%;border:1px dashed var(--line-2);padding:10px;color:var(--dim);font-size:13px}
+.add:hover{border-color:var(--brass);color:var(--brass-soft)}
+.q{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:11px 0;border-bottom:1px solid var(--line)}
+.q:last-child{border:0}
+.q p{font-size:13.5px}
+.yn{display:flex;border:1px solid var(--line-2)}
+.yn button{padding:5px 11px;font-size:12px;color:var(--mute)}
+.yn button.on.s{background:var(--lacre);color:var(--paper)}
+.yn button.on.n{background:var(--ink-3);color:var(--paper)}
+.tese{border:1px solid var(--line);padding:12px 12px 12px 42px;margin-bottom:8px;position:relative;cursor:pointer;transition:border-color .2s}
+.tese:hover{border-color:var(--line-2)}
+.tese.on{border-color:rgba(201,164,92,.6);background:linear-gradient(90deg,rgba(201,164,92,.08),transparent)}
+.tese input{position:absolute;left:13px;top:14px;appearance:none;width:17px;height:17px;border:1px solid var(--line-2);display:grid;place-items:center}
+.tese input:checked{background:var(--brass);border-color:var(--brass)}
+.tese input:checked::after{content:"✓";font-size:12px;color:var(--ink)}
+.tese b{display:block;font-weight:500;font-size:14px}
+.tese small{display:block;color:var(--mute);font-size:12px;margin-top:3px}
+.tese .badges{display:flex;gap:5px;margin-top:7px;flex-wrap:wrap}
+.bd{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;padding:2px 6px;border:1px solid var(--line-2);color:var(--dim)}
+.bd.sug{border-color:var(--lacre);color:var(--lacre-hot)}
+.bd.conf{border-color:var(--brass);color:var(--brass-soft)}
+.tese .more{display:none;font-size:12.5px;color:var(--dim);margin-top:8px;border-top:1px solid var(--line);padding-top:8px}
+.tese.open .more{display:block}
+.tese .tog{font-size:11.5px;color:var(--brass);margin-top:6px;display:inline-block}
+.etapa{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:18px 0 8px}
+.search{width:100%;background:var(--ink);border:1px solid var(--line-2);padding:10px 12px;font-size:14px;outline:none;margin-bottom:12px}
+.norma{padding:12px 0;border-bottom:1px solid var(--line)}
+.norma b{font-weight:500}
+.norma p{color:var(--dim);font-size:13px;margin-top:4px}
+.norma .t{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--brass)}
+.warn{border:1px solid rgba(201,164,92,.5);background:rgba(201,164,92,.07);padding:10px 12px;font-size:12.5px;color:var(--brass-soft);margin-bottom:14px}
+.provas li{font-size:13px;padding:6px 0;border-bottom:1px solid var(--line);list-style:none;display:flex;gap:8px}
+.provas li::before{content:"□";color:var(--brass)}
+.provas .from{font-size:11px;color:var(--mute);margin-left:auto;white-space:nowrap}
+/* preview */
+.stage{padding:28px clamp(16px,4vw,48px) 60px;background:radial-gradient(ellipse at top,#1b1d23,var(--ink) 70%)}
+.stage-h{display:flex;justify-content:space-between;align-items:center;max-width:820px;margin:0 auto 14px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.doc{max-width:820px;margin:0 auto;background:#FBF9F4;color:#1a1a1a;padding:72px 80px;box-shadow:0 30px 80px -20px rgba(0,0,0,.7);font-family:'Times New Roman',Times,serif;font-size:15.5px;line-height:1.75;text-align:justify;min-height:1000px}
+.doc .ender{font-weight:bold;text-align:left;margin-bottom:60px;text-transform:uppercase;font-size:14.5px}
+.doc .rubrica{font-family:Arial,sans-serif;font-size:11px;color:#a33;border:1px dashed #c66;padding:6px 10px;margin-bottom:28px;text-align:left}
+.doc p{margin-bottom:14px;text-indent:3em}
+.doc p.ni{text-indent:0}
+.doc h2{font-size:15.5px;text-transform:uppercase;font-weight:bold;margin:30px 0 12px;text-align:left}
+.doc h3{font-size:15.5px;font-weight:bold;margin:20px 0 10px;text-align:left}
+.doc .titulo{text-align:center;font-weight:bold;font-size:17px;letter-spacing:.04em;margin:24px 0 24px;text-indent:0}
+.doc .proc{text-align:left;text-indent:0;margin-bottom:6px}
+.doc .ph{background:#fff1b8;padding:0 3px}
+.doc .cf{background:#fde2dd;color:#8a1c0d;font-family:Arial,sans-serif;font-size:11.5px;padding:1px 5px;text-indent:0}
+.doc ol{margin:0 0 14px 3em}
+.doc ol li{margin-bottom:8px}
+.doc .ass{text-align:center;margin-top:60px;text-indent:0}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);z-index:60;background:var(--paper);color:var(--ink);padding:10px 18px;font-size:14px;opacity:0;transition:all .3s;pointer-events:none}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+.mob-switch{display:none}
+@media(max-width:980px){
+  .layout{grid-template-columns:1fr}
+  .side{position:static;max-height:none;border-right:0}
+  .stage{display:none}
+  body.show-doc .side{display:none}
+  body.show-doc .stage{display:block;padding:16px 10px 90px}
+  .doc{padding:36px 22px;font-size:14.5px;min-height:auto}
+  .doc .ender{margin-bottom:30px}
+  .mob-switch{display:flex;position:fixed;left:16px;right:16px;bottom:16px;z-index:30}
+  .mob-switch .btn{flex:1;justify-content:center;padding:13px;background:var(--ink-2)}
+  .mob-switch .btn.lacre{background:var(--lacre)}
+  .top .actions .hide-m{display:none}
+  .brand span{display:none}
+}
+@media print{
+  body{background:#fff}
+  .top,.side,.stage-h,.mob-switch,.toast,.doc .rubrica{display:none!important}
+  .layout{display:block}
+  .stage{display:block!important;padding:0;background:none}
+  .doc{box-shadow:none;padding:0;max-width:none;min-height:auto}
+  .doc .ph,.doc .cf{background:none}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="../"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="#C2361F"/><path d="M21 22h22L21 42h22" fill="none" stroke="#F2EDE3" stroke-width="4"/></svg><b>Zelo<i>.</i></b><span>Estúdio</span></a>
+  <div class="actions">
+    <button class="btn hide-m" id="b-novo">Novo caso</button>
+    <button class="btn hide-m" id="b-print">PDF</button>
+    <button class="btn" id="b-copy">Copiar</button>
+    <button class="btn lacre" id="b-doc">Baixar .doc</button>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="side">
+    <div class="tabs">
+      <button class="on" data-p="caso">Caso</button>
+      <button data-p="triagem">Triagem</button>
+      <button data-p="teses">Teses<span class="n" id="n-teses">0</span></button>
+      <button data-p="prova">Prova</button>
+      <button data-p="acervo">Acervo</button>
+    </div>
+
+    <!-- CASO -->
+    <section class="pane on" id="p-caso">
+      <h2 class="h">O <em>processo</em></h2>
+      <p class="sub">Os dados entram na minuta enquanto você digita. Tudo fica salvo só neste navegador.</p>
+      <div class="grp"><div class="lbl">Processo</div>
+        <div class="two">
+          <div class="f"><label>Tribunal</label><select data-k="tribunal" id="s-trib"></select></div>
+          <div class="f"><label>Peça</label><select data-k="peca" id="s-peca"></select></div>
+        </div>
+        <div class="f"><label>Número do processo</label><input data-k="numero" placeholder="TC 012.345/2026-0"></div>
+        <div class="f"><label>Natureza do processo</label><input data-k="natureza" placeholder="Tomada de Contas Especial"></div>
+        <div class="three">
+          <div class="f"><label>Ciência em</label><input type="date" data-k="ciencia"></div>
+          <div class="f"><label>Prazo (dias)</label><input type="number" min="1" data-k="prazo"></div>
+          <div class="f"><label>&nbsp;</label><div class="calc" id="venc">—</div></div>
+        </div>
+      </div>
+      <div class="grp"><div class="lbl">Responsável</div>
+        <div class="f"><label>Nome completo</label><input data-k="responsavel"></div>
+        <div class="two">
+          <div class="f"><label>CPF</label><input data-k="cpf" inputmode="numeric"></div>
+          <div class="f"><label>Cargo à época</label><input data-k="cargo" placeholder="Prefeito Municipal"></div>
+        </div>
+        <div class="two">
+          <div class="f"><label>Órgão ou ente</label><input data-k="orgao" placeholder="Município de ..."></div>
+          <div class="f"><label>Período de gestão</label><input data-k="periodo" placeholder="01/01/2017 a 31/12/2020"></div>
+        </div>
+      </div>
+      <div class="grp"><div class="lbl">Achados <span style="color:var(--mute)" id="n-ach"></span></div>
+        <div id="achados"></div>
+        <button class="add" id="add-ach">+ Adicionar achado</button>
+      </div>
+      <div class="grp"><div class="lbl">Advogado</div>
+        <div class="two">
+          <div class="f"><label>Nome</label><input data-k="adv"></div>
+          <div class="f"><label>Inscrição</label><input data-k="oab"></div>
+        </div>
+        <div class="f"><label>Cidade</label><input data-k="cidade"></div>
+      </div>
+    </section>
+
+    <!-- TRIAGEM -->
+    <section class="pane" id="p-triagem">
+      <h2 class="h">Triagem <em>do caso</em></h2>
+      <p class="sub">Cada resposta “sim” sugere teses do acervo. Você decide o que entra na peça, na aba Teses.</p>
+      <div class="grp" id="gat"></div>
+      <div class="grp"><div class="lbl">Tempo</div>
+        <div class="f"><label>Anos entre o fato e a primeira notificação (aproximado)</label><input type="number" min="0" step="0.5" data-k="anos"></div>
+      </div>
+    </section>
+
+    <!-- TESES -->
+    <section class="pane" id="p-teses">
+      <h2 class="h">Teses <em>da peça</em></h2>
+      <p class="sub">Sugeridas pela triagem aparecem marcadas. As de mérito são aplicadas a cada achado; as demais entram uma vez.</p>
+      <div id="warn-trib"></div>
+      <div id="teses"></div>
+    </section>
+
+    <!-- PROVA -->
+    <section class="pane" id="p-prova">
+      <h2 class="h">Prova <em>a reunir</em></h2>
+      <p class="sub">Lista gerada a partir das teses marcadas. Envie ao cliente como checklist.</p>
+      <ul class="provas" id="provas"></ul>
+      <button class="btn" style="margin-top:14px" id="b-provas">Copiar checklist</button>
+    </section>
+
+    <!-- ACERVO -->
+    <section class="pane" id="p-acervo">
+      <h2 class="h">Acervo <em>técnico</em></h2>
+      <p class="sub" id="acv-v"></p>
+      <input class="search" id="q" placeholder="Buscar norma, tese ou palavra">
+      <div id="acervo"></div>
+    </section>
+  </aside>
+
+  <main class="stage">
+    <div class="stage-h"><span>Minuta ao vivo</span><span id="st-info"></span></div>
+    <article class="doc" id="doc"></article>
+  </main>
+</div>
+
+<div class="mob-switch"><button class="btn" id="m-edit">Editar</button><button class="btn lacre" id="m-doc">Ver minuta</button></div>
+<div class="toast" id="toast"></div>
+
+<script src="../assets/acervo.js"></script>
+<script>
+const A=window.ZELO_ACERVO;
+const TRIB=["TCU","TCDF","TCE-AC","TCE-AL","TCE-AM","TCE-AP","TCE-BA","TCE-CE","TCE-ES","TCE-GO","TCE-MA","TCE-MG","TCE-MS","TCE-MT","TCE-PA","TCE-PB","TCE-PE","TCE-PI","TCE-PR","TCE-RJ","TCE-RN","TCE-RO","TCE-RR","TCE-RS","TCE-SC","TCE-SE","TCE-SP","TCE-TO","TCM-BA","TCM-GO","TCM-PA","TCM-RJ","TCM-SP"];
+const ETAPAS=[["preliminar","Preliminares"],["prejudicial","Prejudiciais de mérito"],["merito","Mérito"],["subsidiaria","Pedidos subsidiários"]];
+const T=Object.fromEntries(A.teses.map(t=>[t.id,t])),N=Object.fromEntries(A.normas.map(n=>[n.id,n]));
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function toast(t){const e=$('#toast');e.textContent=t;e.classList.add('on');clearTimeout(e._t);e._t=setTimeout(()=>e.classList.remove('on'),2200)}
+
+/* ---------- estado ---------- */
+const KEY='zelo.estudio.v1';
+const BLANK=()=>({tribunal:"TCU",peca:"Citação",numero:"",natureza:"Tomada de Contas Especial",ciencia:"",prazo:15,responsavel:"",cpf:"",cargo:"",orgao:"",periodo:"",
+  achados:[{desc:"",valor:"",fatos:""}],gat:{},anos:"",teses:{dosimetria:true},adv:"Marco Antonio Lima da Cruz Filho",oab:"OAB/BA 59.873",cidade:"Salvador/BA"});
+let S=BLANK();
+try{const r=localStorage.getItem(KEY);if(r)S=Object.assign(BLANK(),JSON.parse(r))}catch(e){}
+let saveT;const save=()=>{clearTimeout(saveT);saveT=setTimeout(()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}},300)};
+
+/* ---------- datas ---------- */
+const pad=n=>String(n).padStart(2,'0'),iso=d=>`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+const parse=s=>{const[y,m,d]=s.split('-').map(Number);return new Date(y,m-1,d)};
+function easter(y){const a=y%19,b=Math.floor(y/100),c=y%100,d=Math.floor(b/4),e=b%4,f=Math.floor((b+8)/25),g=Math.floor((b-f+1)/3),h=(19*a+b-d-g+15)%30,i=Math.floor(c/4),k=c%4,l=(32+2*e+2*i-h-k)%7,m=Math.floor((a+11*h+22*l)/451),mo=Math.floor((h+l-7*m+114)/31),da=((h+l-7*m+114)%31)+1;return new Date(y,mo-1,da)}
+function hol(y){const s=new Set(["01-01","04-21","05-01","09-07","10-12","11-02","11-15","11-20","12-25"].map(x=>`${y}-${x}`));const e=easter(y);[-48,-47,-2,60].forEach(n=>{const d=new Date(e);d.setDate(d.getDate()+n);s.add(iso(d))});return s}
+const biz=d=>d.getDay()%6!==0&&!hol(d.getFullYear()).has(iso(d));
+function venc(c,n){const d=parse(c);d.setDate(d.getDate()+Number(n));while(!biz(d))d.setDate(d.getDate()+1);return d}
+const ext=d=>d.toLocaleDateString('pt-BR',{day:'numeric',month:'long',year:'numeric'});
+
+/* ---------- valores ---------- */
+const num=v=>{const s=String(v||'').replace(/[^\d,.-]/g,'');if(!s)return 0;return Number(s.includes(',')?s.replace(/\./g,'').replace(',','.'):s)||0};
+const brl=v=>v.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
+
+/* ---------- form binding ---------- */
+TRIB.forEach(t=>$('#s-trib').insertAdjacentHTML('beforeend',`<option>${t}</option>`));
+Object.keys(A.pecas).forEach(p=>$('#s-peca').insertAdjacentHTML('beforeend',`<option>${p}</option>`));
+$$('[data-k]').forEach(el=>{el.value=S[el.dataset.k]??'';el.addEventListener('input',()=>{S[el.dataset.k]=el.value;update()})});
+
+function renderAchados(){
+  $('#achados').innerHTML=S.achados.map((a,i)=>`<div class="achado"><button class="x" data-i="${i}" title="Remover">×</button>
+    <div class="f"><label>Achado ${i+1} · o que o tribunal aponta</label><textarea data-a="desc" data-i="${i}" rows="2" placeholder="Pagamento sem comprovação da execução dos serviços contratados">${esc(a.desc)}</textarea></div>
+    <div class="f"><label>Valor imputado (se houver)</label><input data-a="valor" data-i="${i}" value="${esc(a.valor)}" placeholder="R$ 0,00"></div>
+    <div class="f"><label>O que de fato aconteceu (versão do responsável)</label><textarea data-a="fatos" data-i="${i}" rows="3" placeholder="Os serviços foram executados entre março e junho, conforme medições assinadas pelo fiscal...">${esc(a.fatos)}</textarea></div></div>`).join('');
+  $('#n-ach').textContent=S.achados.length;
+  $$('#achados [data-a]').forEach(el=>el.addEventListener('input',()=>{S.achados[el.dataset.i][el.dataset.a]=el.value;update()}));
+  $$('#achados .x').forEach(b=>b.onclick=()=>{if(S.achados.length===1){S.achados=[{desc:"",valor:"",fatos:""}]}else S.achados.splice(b.dataset.i,1);renderAchados();update()});
+}
+$('#add-ach').onclick=()=>{S.achados.push({desc:"",valor:"",fatos:""});renderAchados();update()};
+
+/* ---------- triagem ---------- */
+function renderGat(){
+  $('#gat').innerHTML='<div class="lbl">Perguntas</div>'+A.gatilhos.map(g=>`<div class="q"><p>${g.pergunta}</p><div class="yn" data-g="${g.id}"><button class="s ${S.gat[g.id]===true?'on':''}" data-v="1">Sim</button><button class="n ${S.gat[g.id]===false?'on':''}" data-v="0">Não</button></div></div>`).join('');
+  $$('#gat .yn').forEach(y=>y.onclick=e=>{const b=e.target.closest('button');if(!b)return;const id=y.dataset.g,v=b.dataset.v==='1';
+    const prev=S.gat[id];S.gat[id]=prev===v?undefined:v;
+    const g=A.gatilhos.find(x=>x.id===id);
+    if(S.gat[id]===true)g.teses.forEach(t=>{if(S.teses[t]===undefined)S.teses[t]=true});
+    if(prev===true&&S.gat[id]!==true)g.teses.forEach(t=>{if(!sugeridas().has(t))delete S.teses[t]});
+    renderGat();renderTeses();update()});
+}
+const sugeridas=()=>new Set(A.gatilhos.filter(g=>S.gat[g.id]===true).flatMap(g=>g.teses));
+
+/* ---------- teses ---------- */
+function renderTeses(){
+  const sug=sugeridas();
+  $('#warn-trib').innerHTML=S.tribunal!=='TCU'?`<div class="warn">Os fundamentos do acervo têm como referência o TCU. Para o ${esc(S.tribunal)}, ajuste os dispositivos à lei orgânica e ao regimento do tribunal antes do protocolo.</div>`:'';
+  $('#teses').innerHTML=ETAPAS.map(([k,l])=>{const ts=A.teses.filter(t=>t.etapa===k).sort((a,b)=>sug.has(b.id)-sug.has(a.id));
+    return `<div class="etapa">${l}</div>`+ts.map(t=>`<div class="tese ${S.teses[t.id]?'on':''}" data-t="${t.id}"><input type="checkbox" ${S.teses[t.id]?'checked':''} aria-label="${esc(t.nome)}">
+      <b>${t.nome}</b><small>${t.quando}</small>
+      <div class="badges">${sug.has(t.id)?'<span class="bd sug">Sugerida</span>':''}${t.conferir?'<span class="bd conf">Conferir fonte</span>':''}${t.normas.slice(0,3).map(n=>`<span class="bd">${esc(N[n].ref.replace(/ \(.*?\)/,'').split(', art')[0].replace(/^STF, /,'STF · '))}</span>`).join('')}</div>
+      <span class="tog">Ver fundamentos</span>
+      <div class="more"><p><b style="font-size:12px">Fundamentos:</b> ${t.normas.map(n=>esc(N[n].ref)).join('; ')}</p><p style="margin-top:6px"><b style="font-size:12px">Atenção:</b> ${esc(t.cuidado)}</p></div></div>`).join('')}).join('');
+  $$('#teses .tese').forEach(el=>el.onclick=e=>{if(e.target.classList.contains('tog')){el.classList.toggle('open');return}
+    const id=el.dataset.t;S.teses[id]=!S.teses[id];renderTeses();update()});
+  $('#n-teses').textContent=A.teses.filter(t=>S.teses[t.id]).length;
+}
+
+/* ---------- prova ---------- */
+function provas(){const out=[],seen=new Set();A.teses.filter(t=>S.teses[t.id]).forEach(t=>t.provas.forEach(p=>{if(!seen.has(p)){seen.add(p);out.push([p,t.nome])}}));return out}
+function renderProvas(){const p=provas();$('#provas').innerHTML=p.length?p.map(([x,f])=>`<li>${esc(x)}<span class="from">${esc(f)}</span></li>`).join(''):'<li style="color:var(--mute)">Marque teses para gerar a lista.</li>'}
+$('#b-provas').onclick=()=>copy('Documentos a reunir\n\n'+provas().map(([x])=>'[ ] '+x).join('\n'));
+
+/* ---------- acervo ---------- */
+$('#acv-v').textContent=`Versão ${A.versao} · ${A.teses.length} teses · ${A.normas.length} normas e precedentes. Itens com “conferir fonte” devem ser checados no texto oficial.`;
+function renderAcervo(){const q=$('#q').value.trim().toLowerCase();const m=s=>!q||s.toLowerCase().includes(q);
+  const ns=A.normas.filter(n=>m(n.ref+n.resumo+n.tema)),ts=A.teses.filter(t=>m(t.nome+t.quando+t.texto+t.cuidado));
+  $('#acervo').innerHTML=(ts.length?`<div class="etapa">Teses (${ts.length})</div>`+ts.map(t=>`<div class="norma"><span class="t">${t.etapa}</span><br><b>${t.nome}</b>${t.conferir?' <span class="bd conf">Conferir</span>':''}<p>${esc(t.texto.replace(/\{\{(\w+)\}\}/g,'[$1]'))}</p></div>`).join(''):'')+
+    (ns.length?`<div class="etapa">Normas e precedentes (${ns.length})</div>`+ns.map(n=>`<div class="norma"><span class="t">${n.tema}</span><br><b>${n.ref}</b>${n.conferir?' <span class="bd conf">Conferir</span>':''}<p>${esc(n.resumo)}</p></div>`).join(''):'')||'<p class="sub">Nada encontrado.</p>'}
+$('#q').oninput=renderAcervo;
+
+/* ---------- minuta ---------- */
+const PH=(v,l)=>v?esc(v):`<span class="ph">[${l}]</span>`;
+function fill(txt,ctx){return esc(txt).replace(/\{\{(\w+)\}\}/g,(_,k)=>ctx[k]?`<span data-v>${esc(ctx[k])}</span>`:`<span class="ph">[${k}]</span>`)}
+function build(){
+  const pc=A.pecas[S.peca]||A.pecas["Citação"],sel=A.teses.filter(t=>S.teses[t.id]);
+  const by=k=>sel.filter(t=>t.etapa===k);
+  const total=S.achados.reduce((s,a)=>s+num(a.valor),0);
+  const base={responsavel:S.responsavel,cargo:S.cargo,orgao:S.orgao,tribunal:S.tribunal,anos:S.anos,valor:total?brl(total):''};
+  const cf=t=>t.conferir?` <span class="cf">CONFERIR FONTE: ${esc(t.normas.filter(n=>N[n].conferir).map(n=>N[n].ref).join('; ')||'jurisprudência atual')}</span>`:'';
+  let h=`<div class="rubrica">MINUTA · revisar fatos, fundamentos e jurisprudência antes do protocolo. Trechos em amarelo: dados faltantes. Em vermelho: conferir na fonte oficial.</div>`;
+  h+=`<div class="ender">${esc(A.enderecamento(S.tribunal))}</div>`;
+  h+=`<p class="proc"><b>Processo:</b> ${PH(S.numero,'número do processo')}</p><p class="proc"><b>Natureza:</b> ${PH(S.natureza,'natureza')}</p><p class="proc" style="margin-bottom:30px"><b>Responsável:</b> ${PH(S.responsavel,'nome do responsável')}</p>`;
+  h+=`<p><b>${PH(S.responsavel&&S.responsavel.toUpperCase(),'NOME DO RESPONSÁVEL')}</b>${S.cpf?`, inscrito no CPF sob o nº ${esc(S.cpf)}`:''}, ${S.cargo?`${esc(S.cargo)} à época dos fatos`:PH('','cargo à época')}${S.orgao?`, no ${esc(S.orgao)}`:''}${S.periodo?` (período de ${esc(S.periodo)})`:''}, por seu advogado infra-assinado, vem, respeitosamente, à presença de Vossa Excelência ${pc.verbo} referente ao processo em epígrafe, pelas razões de fato e de direito a seguir expostas.</p>`;
+  h+=`<p class="titulo">${pc.titulo}</p>`;
+  let sec=0;const R=['I','II','III','IV','V','VI','VII','VIII','IX','X'];
+  // tempestividade
+  h+=`<h2>${R[sec++]}. Da tempestividade</h2>`;
+  if(S.ciencia&&S.prazo){const v=venc(S.ciencia,S.prazo);h+=`<p>A ciência da comunicação ocorreu em ${ext(parse(S.ciencia))}. Contado o prazo de ${Number(S.prazo)} dias, seu termo final recai em ${ext(v)}, sendo tempestiva a presente manifestação.</p>`}
+  else h+=`<p>A presente manifestação é tempestiva, tendo sido apresentada dentro do prazo de ${PH(S.prazo,'prazo')} dias contado da ciência ocorrida em ${PH('','data da ciência')}.</p>`;
+  // síntese
+  h+=`<h2>${R[sec++]}. Síntese da imputação</h2>`;
+  h+=`<p>A comunicação atribui a ${PH(S.responsavel,'responsável')} ${S.achados.length>1?'as seguintes ocorrências':'a seguinte ocorrência'}:</p><ol>`+S.achados.map((a,i)=>`<li>${PH(a.desc,'descrição do achado '+(i+1))}${num(a.valor)?`, com débito apurado de ${brl(num(a.valor))}`:''};</li>`).join('')+`</ol>`;
+  if(total)h+=`<p>O valor total em discussão alcança ${brl(total)}, em valores históricos.</p>`;
+  // preliminares e prejudiciais
+  [['preliminar','Das preliminares'],['prejudicial','Da prejudicial de mérito']].forEach(([k,l])=>{const ts=by(k);if(!ts.length)return;
+    h+=`<h2>${R[sec++]}. ${ts.length>1&&k==='prejudicial'?'Das prejudiciais de mérito':l}</h2>`;
+    ts.forEach((t,i)=>{h+=`<h3>${R[sec-1]}.${i+1}. ${esc(t.nome)}</h3><p>${fill(t.texto,{...base,achado:S.achados.map(a=>a.desc).filter(Boolean).join('; ')||''})}${cf(t)}</p>`})});
+  // mérito
+  const ORD=['prova_documental','execucao_objeto','falha_formal','nexo_causal','orientacao_epoca','dificuldades_reais','parecer_respaldo','erro_grosseiro'];
+  const mer=by('merito').sort((x,y)=>ORD.indexOf(x.id)-ORD.indexOf(y.id));
+  h+=`<h2>${R[sec++]}. Do mérito</h2>`;
+  S.achados.forEach((a,i)=>{const ms=R[sec-1];h+=`<h3>${ms}.${i+1}. ${a.desc?esc(a.desc.length>110?a.desc.slice(0,107)+'...':a.desc):PH('','achado '+(i+1))}</h3>`;
+    h+=a.fatos?a.fatos.split(/\n+/).filter(Boolean).map(p=>`<p>${esc(p)}</p>`).join(''):`<p>${PH('','narrativa dos fatos conforme a versão do responsável e os documentos')}</p>`;
+    mer.forEach(t=>{h+=`<p>${fill(t.texto,{...base,achado:a.desc?('“'+a.desc.replace(/[.;]\s*$/,'')+'”'):'',valor:num(a.valor)?brl(num(a.valor)):base.valor})}${cf(t)}</p>`})});
+  if(!mer.length)h+=`<p><span class="ph">[marque ao menos uma tese de mérito na aba Teses]</span></p>`;
+  // subsidiários
+  const sub=by('subsidiaria');
+  if(sub.length){h+=`<h2>${R[sec++]}. Dos pedidos subsidiários</h2>`;sub.forEach(t=>{h+=`<p>${fill(t.texto,{...base,achado:'os fatos apontados'})}${cf(t)}</p>`})}
+  // pedidos
+  h+=`<h2>${R[sec++]}. Dos pedidos</h2><p>Diante do exposto, requer-se:</p><ol>`;
+  const peds=[];
+  if(by('preliminar').length)peds.push('o acolhimento das preliminares suscitadas, com as consequências delas decorrentes;');
+  if(by('prejudicial').length)peds.push(`o reconhecimento ${by('prejudicial').some(t=>/prescri/.test(t.id))?'da prescrição das pretensões punitiva e de ressarcimento':'da prejudicial suscitada'}, com o arquivamento do processo em relação ao responsável;`);
+  peds.push(`no mérito, o acolhimento ${S.peca==='Audiência'?'das razões de justificativa':S.peca==='Citação'?'das alegações de defesa':'da presente manifestação'}, com o afastamento ${total?'do débito e ':''}de qualquer sanção, e o julgamento das contas como ${S.teses.falha_formal?'regulares com ressalva':'regulares'};`);
+  sub.forEach(t=>{if(t.id==='debito_excessivo')peds.push('subsidiariamente, o recálculo do débito, limitado ao dano efetivamente demonstrado;');
+    if(t.id==='boa_fe_recolhimento')peds.push('subsidiariamente, o reconhecimento da boa-fé, com abertura de novo prazo para recolhimento do débito atualizado monetariamente, sem juros de mora;');
+    if(t.id==='dosimetria')peds.push('subsidiariamente, a fixação de eventual multa no mínimo legal, observada a proporcionalidade;');
+    if(t.id==='inelegibilidade_prefeito')peds.push('que eventual decisão consigne a inexistência de irregularidade insanável e de ato doloso de improbidade;')});
+  peds.push('a intimação do advogado subscritor para os atos do processo, inclusive para sustentação oral, nos termos regimentais.');
+  h+=peds.map(p=>`<li>${p}</li>`).join('')+`</ol>`;
+  h+=`<p>Protesta pela juntada dos documentos anexos e de outros que se fizerem necessários.</p><p class="ni" style="text-indent:3em">Nestes termos, pede deferimento.</p>`;
+  const hoje=new Date();
+  h+=`<p class="ass">${PH(S.cidade,'cidade')}, ${ext(hoje)}.</p><p class="ass" style="margin-top:50px">__________________________________<br><b>${PH(S.adv,'advogado')}</b><br>${PH(S.oab,'OAB')}</p>`;
+  return h;
+}
+
+/* ---------- update ---------- */
+function update(){
+  save();
+  if(S.ciencia&&S.prazo){const v=venc(S.ciencia,S.prazo),d=Math.round((v-new Date(new Date().toDateString()))/864e5);$('#venc').innerHTML=`Vence <b>${v.toLocaleDateString('pt-BR')}</b><br>${d<0?'vencido':d===0?'hoje':d+' dias'}`}else $('#venc').textContent='—';
+  $('#doc').innerHTML=build();
+  $('#n-teses').textContent=A.teses.filter(t=>S.teses[t.id]).length;
+  $('#st-info').textContent=`${S.tribunal} · ${S.peca}`;
+  renderProvas();
+  if($('#p-teses').classList.contains('on'))$('#warn-trib').innerHTML=S.tribunal!=='TCU'?`<div class="warn">Os fundamentos do acervo têm como referência o TCU. Para o ${esc(S.tribunal)}, ajuste os dispositivos à lei orgânica e ao regimento do tribunal antes do protocolo.</div>`:'';
+}
+
+/* ---------- export ---------- */
+function plain(){const c=$('#doc').cloneNode(true);c.querySelector('.rubrica')?.remove();
+  c.querySelectorAll('h2,h3,p,li,.ender').forEach(e=>e.append('\n'));c.querySelectorAll('li').forEach((li,i)=>li.prepend((i+1)+'. '));return c.innerText.replace(/\n{3,}/g,'\n\n').trim()}
+async function copy(t){try{await navigator.clipboard.writeText(t);toast('Copiado')}catch(e){toast('Não foi possível copiar')}}
+$('#b-copy').onclick=()=>copy(plain());
+$('#b-print').onclick=()=>print();
+$('#b-doc').onclick=()=>{
+  const body=$('#doc').innerHTML;
+  const html=`<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word"><head><meta charset="utf-8"><title>Minuta</title>
+<style>@page{size:A4;margin:3cm 2cm 2cm 3cm}body{font-family:'Times New Roman';font-size:12pt;line-height:1.5;text-align:justify}
+p{margin:0 0 10pt;text-indent:2.5cm}.ni,.proc,.titulo,.ass{text-indent:0}.ender{font-weight:bold;text-transform:uppercase;margin-bottom:48pt}
+h2{font-size:12pt;text-transform:uppercase;margin:18pt 0 8pt}h3{font-size:12pt;margin:12pt 0 6pt}.titulo{text-align:center;font-weight:bold;font-size:13pt;margin:18pt 0}
+.ass{text-align:center}.ph{background:yellow}.cf{color:#B00000;font-family:Arial;font-size:9pt}.rubrica{color:#B00000;font-family:Arial;font-size:9pt;border:1px dashed #B00000;padding:4pt}</style></head><body>${body}</body></html>`;
+  const blob=new Blob(['﻿',html],{type:'application/msword'});const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);a.download=`minuta-${(S.numero||S.responsavel||'zelo').replace(/[^\w.-]+/g,'-').toLowerCase()}.doc`;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),2000);toast('Minuta baixada')};
+$('#b-novo').onclick=()=>{if(confirm('Começar um caso novo? O caso atual será apagado deste navegador.')){S=BLANK();$$('[data-k]').forEach(el=>el.value=S[el.dataset.k]??'');renderAchados();renderGat();renderTeses();update()}};
+
+/* ---------- tabs ---------- */
+$$('.tabs button').forEach(b=>b.onclick=()=>{$$('.tabs button').forEach(x=>x.classList.toggle('on',x===b));$$('.pane').forEach(p=>p.classList.toggle('on',p.id==='p-'+b.dataset.p));
+  if(b.dataset.p==='teses')renderTeses();if(b.dataset.p==='acervo')renderAcervo();$('.side').scrollTop=0});
+$('#m-doc').onclick=()=>{document.body.classList.add('show-doc');scrollTo(0,0)};
+$('#m-edit').onclick=()=>{document.body.classList.remove('show-doc');scrollTo(0,0)};
+
+renderAchados();renderGat();renderTeses();renderAcervo();update();
+</script>
+</body>
+</html>

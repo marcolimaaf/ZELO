@@ -254,18 +254,76 @@ footer{padding:3rem var(--gut) 2.5rem;border-top:1px solid var(--line);font-size
 .modal-box ul{padding-left:1.2rem}
 .modal-x{position:absolute;top:1rem;right:1rem;background:none;border:0;font-size:1.6rem;cursor:pointer;color:var(--ink)}
 
+/* HAMBURGER */
+.ham{display:none;background:none;border:0;cursor:pointer;padding:.5rem;color:var(--paper)}
+.ham svg{display:block}
+.mob-menu{display:none;position:fixed;inset:0;z-index:99;background:rgba(14,15,18,.96);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);flex-direction:column;align-items:center;justify-content:center;gap:2.2rem;opacity:0;transition:opacity .35s}
+.mob-menu.open{display:flex;opacity:1}
+.mob-menu a{font-family:var(--serif);font-size:1.6rem;text-decoration:none;color:var(--paper);transition:color .2s}
+.mob-menu a:hover{color:var(--brass-soft)}
+.mob-menu .mob-close{position:absolute;top:1.2rem;right:var(--gut);background:none;border:0;color:var(--paper);font-size:2rem;cursor:pointer}
+
+/* TRUST BAR */
+.trust{border-bottom:1px solid var(--line);background:var(--ink-2);overflow:hidden}
+.trust-inner{display:flex;justify-content:center;gap:clamp(2rem,5vw,4rem);padding:1.5rem var(--gut);max-width:1320px;margin:0 auto;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:.7rem;font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;color:var(--paper-dim);white-space:nowrap}
+.trust-item svg{flex-shrink:0}
+
+/* HOW TO HIRE - steps */
+.hire{background:var(--ink);border-top:1px solid var(--line)}
+.hire-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3.5rem;counter-reset:hs}
+.hire-step{position:relative;padding:2rem 1.6rem;background:linear-gradient(160deg,rgba(255,255,255,.04),rgba(255,255,255,.01));border:1px solid var(--line);transition:border-color .3s,transform .3s}
+.hire-step:hover{border-color:var(--brass);transform:translateY(-4px)}
+.hire-step::before{content:counter(hs);counter-increment:hs;font-family:var(--serif);font-size:3rem;font-weight:500;line-height:1;color:var(--lacre);opacity:.6}
+.hire-step h3{font-family:var(--serif);font-size:1.2rem;font-weight:500;margin:.8rem 0 .5rem}
+.hire-step p{color:var(--paper-dim);font-size:.88rem;line-height:1.6}
+.hire-step .hs-tag{display:inline-block;margin-top:.8rem;font-family:var(--mono);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--brass);border:1px solid rgba(201,164,92,.3);padding:.25rem .55rem}
+.hire-arrow{position:absolute;right:-1rem;top:50%;color:var(--mute);font-size:1.2rem;display:none}
+
+/* DOCUMENT UPLOAD INFO */
+.doc-flow{background:linear-gradient(160deg,rgba(194,54,31,.08),transparent);border:1px solid rgba(194,54,31,.2);padding:2rem;margin-top:2.5rem}
+.doc-flow h3{font-family:var(--serif);font-weight:500;font-size:1.3rem;margin-bottom:.8rem;display:flex;align-items:center;gap:.7rem}
+.doc-flow h3 svg{flex-shrink:0}
+.doc-flow ul{list-style:none;font-size:.9rem;color:var(--paper-dim)}
+.doc-flow li{padding:.4rem 0 .4rem 1.4rem;position:relative}
+.doc-flow li::before{content:"→";position:absolute;left:0;color:var(--lacre)}
+
 /* WhatsApp-like floating CTA */
 .float-cta{position:fixed;right:1rem;bottom:calc(1rem + env(safe-area-inset-bottom,0px));z-index:90;display:none;opacity:0;transform:translateY(20px);pointer-events:none;transition:opacity .3s,transform .3s}
 .float-cta.show{opacity:1;transform:none;pointer-events:auto}
+
+/* WHATSAPP BTN */
+.btn-wpp{background:#25D366;color:#fff;gap:.5rem}
+.btn-wpp:hover{background:#20bd5a;transform:translateY(-2px)}
+.btn-wpp svg{flex-shrink:0}
+
+/* CHANNELS */
+.channels{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-top:1.5rem}
+.channel{display:flex;align-items:center;gap:.8rem;padding:1.2rem;border:1px solid var(--line);text-decoration:none;color:var(--paper);transition:border-color .3s,transform .2s}
+.channel:hover{border-color:var(--brass);transform:translateY(-2px)}
+.channel .ch-icon{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;flex-shrink:0}
+.channel .ch-icon.wpp{background:rgba(37,211,102,.15);color:#25D366}
+.channel .ch-icon.mail{background:rgba(201,164,92,.15);color:var(--brass)}
+.channel b{display:block;font-weight:500;font-size:.9rem}
+.channel span{font-size:.78rem;color:var(--paper-dim)}
+
+/* PLAN IMPROVEMENTS */
+.plan-tag{display:inline-block;font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;padding:.25rem .6rem;margin-bottom:.8rem}
+.plan-tag.pop{background:var(--lacre);color:var(--paper)}
+.plan-tag.inst{background:rgba(201,164,92,.2);color:var(--brass)}
+.plan-divider{width:100%;height:1px;background:rgba(14,15,18,.12);margin:1.2rem 0}
+.plan.feature .plan-divider{background:var(--line)}
 
 /* REVEAL */
 .rv{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1)}
 .rv.in{opacity:1;transform:none}
 
 /* RESPONSIVE */
+@media(min-width:1001px){.hire-arrow{display:block}}
 @media(max-width:1000px){
   .nav-links{display:none}
-  .stakes-grid,.plan-grid{grid-template-columns:1fr}
+  .ham{display:block}
+  .stakes-grid,.plan-grid,.hire-steps{grid-template-columns:1fr}
   .svc{grid-template-columns:60px 1fr;gap:1rem 1.2rem}
   .svc-body{grid-column:2}
   .svc-arrow{display:none}
@@ -274,6 +332,7 @@ footer{padding:3rem var(--gut) 2.5rem;border-top:1px solid var(--line);font-size
   .seal{display:none}
   .stake{min-height:auto}
   .plan.feature{order:-1}
+  .channels{grid-template-columns:1fr}
 }
 @media(max-width:600px){
   .nav .btn-ghost{display:none}
@@ -286,6 +345,7 @@ footer{padding:3rem var(--gut) 2.5rem;border-top:1px solid var(--line);font-size
   .phone{transform:rotateY(-10deg) rotateX(6deg);width:260px;height:530px}
   .float-cta{display:block}
   .float-cta .btn{box-shadow:0 10px 30px rgba(194,54,31,.45)}
+  .hire-steps{gap:1rem}
 }
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
@@ -311,8 +371,19 @@ footer{padding:3rem var(--gut) 2.5rem;border-top:1px solid var(--line);font-size
   <div class="nav-right">
     <a href="app/" class="btn btn-ghost btn-sm">Área do cliente</a>
     <a href="#contato" class="btn btn-lacre btn-sm">Enviar meu caso</a>
+    <button class="ham" id="ham-btn" aria-label="Menu"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
   </div>
 </nav>
+<div class="mob-menu" id="mob-menu">
+  <button class="mob-close" id="mob-close" aria-label="Fechar menu">×</button>
+  <a href="#servicos" class="mob-link">Serviços</a>
+  <a href="#metodo" class="mob-link">Método</a>
+  <a href="#plataforma" class="mob-link">Plataforma</a>
+  <a href="#planos" class="mob-link">Planos</a>
+  <a href="#duvidas" class="mob-link">Dúvidas</a>
+  <a href="app/" class="mob-link" style="color:var(--brass-soft)">Área do cliente</a>
+  <a href="#contato" class="btn btn-lacre" style="margin-top:1rem">Enviar meu caso</a>
+</div>
 
 <header class="hero">
   <canvas id="scene" aria-hidden="true"></canvas>
@@ -333,6 +404,16 @@ footer{padding:3rem var(--gut) 2.5rem;border-top:1px solid var(--line);font-size
   <div class="marquee-track">
     <span>Tomada de Contas Especial</span><span>Prestação de Contas Anual</span><span>Citação</span><span>Audiência</span><span>Oitiva</span><span>Diligência</span><span>Recurso de Reconsideração</span><span>Pedido de Reexame</span><span>Embargos de Declaração</span><span>Recurso de Revisão</span><span>Imputação de débito</span><span>Multa</span><span>Inabilitação</span>
     <span>Tomada de Contas Especial</span><span>Prestação de Contas Anual</span><span>Citação</span><span>Audiência</span><span>Oitiva</span><span>Diligência</span><span>Recurso de Reconsideração</span><span>Pedido de Reexame</span><span>Embargos de Declaração</span><span>Recurso de Revisão</span><span>Imputação de débito</span><span>Multa</span><span>Inabilitação</span>
+  </div>
+</div>
+
+<!-- TRUST BAR -->
+<div class="trust">
+  <div class="trust-inner">
+    <div class="trust-item"><svg width="16" height="16" fill="none" stroke="var(--brass)" stroke-width="1.5"><path d="M8 1L2 4v5c0 3.5 2.7 6.2 6 7 3.3-.8 6-3.5 6-7V4L8 1z"/><path d="M5.5 8l2 2 3.5-4"/></svg> OAB/BA 59.873</div>
+    <div class="trust-item"><svg width="16" height="16" fill="none" stroke="var(--brass)" stroke-width="1.5"><rect x="2" y="3" width="12" height="10" rx="1.5"/><path d="M2 6h12"/></svg> 33 Tribunais de Contas</div>
+    <div class="trust-item"><svg width="16" height="16" fill="none" stroke="var(--brass)" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><path d="M8 2v6l3 3"/></svg> Resposta em até 1 dia útil</div>
+    <div class="trust-item"><svg width="16" height="16" fill="none" stroke="var(--brass)" stroke-width="1.5"><path d="M2 14V4a2 2 0 012-2h8a2 2 0 012 2v10"/><path d="M5 7h6M5 10h4"/></svg> Sigilo profissional garantido</div>
   </div>
 </div>
 
@@ -493,50 +574,96 @@ footer{padding:3rem var(--gut) 2.5rem;border-top:1px solid var(--line);font-size
 <section class="plans" id="planos">
   <div class="wrap">
     <p class="sec-label rv"><b>06</b> Planos</p>
-    <h2 class="h2 rv">Cada caso tem <em>uma proposta</em> própria.</h2>
-    <p class="intro rv">Honorários dependem do tribunal, da fase, dos achados e dos valores em discussão. Por isso começamos pela análise do processo e só depois apresentamos a proposta, por escrito, antes de qualquer cobrança.</p>
+    <h2 class="h2 rv">Escolha a frente <em>que o seu caso pede</em>.</h2>
+    <p class="intro rv">Começamos sempre pela análise. Com ela em mãos, você decide se contrata a defesa, o recurso ou o acompanhamento contínuo. Honorários são definidos por escrito, antes de qualquer cobrança.</p>
     <div class="plan-grid">
       <article class="plan feature rv">
-        <h3>Gestor</h3>
-        <p class="who">Para quem responde por um ou poucos processos.</p>
-        <div class="price txt">Análise inicial</div>
-        <p class="note">Envie o ofício. Você recebe o prazo calculado e a proposta por escrito.</p>
+        <span class="plan-tag pop">Comece por aqui</span>
+        <h3>Análise do processo</h3>
+        <p class="who">Para qualquer gestor que recebeu ofício de Tribunal de Contas e precisa entender o cenário.</p>
+        <div class="price txt">Primeiro passo, sem compromisso</div>
+        <p class="note">Envie o ofício e receba o prazo calculado. A proposta de honorários vem por escrito.</p>
+        <div class="plan-divider"></div>
         <ul>
-          <li>Leitura do processo e prazo exato</li>
+          <li>Leitura integral dos autos</li>
+          <li>Prazo exato com contagem de dias úteis</li>
           <li>Parecer de risco por achado</li>
+          <li>Mapa de responsáveis e valores</li>
+          <li>Estratégia recomendada por escrito</li>
           <li>Acesso à área do cliente</li>
-          <li>Canal direto com o advogado</li>
         </ul>
-        <a href="#contato" class="btn btn-lacre" data-plan="Gestor">Enviar meu caso</a>
+        <a href="#contato" class="btn btn-lacre" data-plan="Gestor">Enviar meu caso <span class="arr">→</span></a>
       </article>
       <article class="plan rv">
-        <h3>Institucional</h3>
-        <p class="who">Prefeituras, câmaras, autarquias e consórcios.</p>
-        <div class="price txt">Proposta individual</div>
-        <p class="note">Escopo definido conforme o volume de processos e a equipe envolvida.</p>
-        <ul>
-          <li>Acompanhamento de vários processos</li>
-          <li>Área do cliente para a equipe interna</li>
-          <li>Relatório mensal de exposição</li>
-          <li>Orientação preventiva à equipe</li>
-        </ul>
-        <a href="#contato" class="btn btn-ghost" data-plan="Institucional">Falar com a equipe</a>
-      </article>
-      <article class="plan rv">
+        <span class="plan-tag" style="border:1px solid rgba(14,15,18,.2)">Atuação completa</span>
         <h3>Defesa e recurso</h3>
-        <p class="who">Atuação técnica no seu processo, do diagnóstico ao julgamento.</p>
+        <p class="who">Do diagnóstico ao julgamento: redação da peça, prova, memoriais, sustentação oral e recursos.</p>
         <div class="price txt">Proposta individual</div>
-        <p class="note">Honorários definidos em contrato, conforme a complexidade do caso.</p>
+        <p class="note">Honorários em contrato, conforme tribunal, achados e valores em discussão.</p>
+        <div class="plan-divider"></div>
         <ul>
-          <li>Análise com parecer de risco</li>
-          <li>Defesa, memoriais e sustentação</li>
-          <li>Recursos cabíveis</li>
+          <li>Tudo da análise, mais:</li>
+          <li>Defesa ponto a ponto com precedentes</li>
+          <li>Organização da prova documental</li>
+          <li>Memoriais e sustentação oral</li>
+          <li>Recursos cabíveis (reconsideração, reexame, embargos)</li>
           <li>Advogado responsável identificado</li>
         </ul>
-        <a href="#contato" class="btn btn-ghost" data-plan="Defesa e recurso">Enviar meu caso</a>
+        <a href="#contato" class="btn btn-ghost" data-plan="Defesa e recurso">Enviar meu caso <span class="arr">→</span></a>
+      </article>
+      <article class="plan rv">
+        <span class="plan-tag inst">Órgão público</span>
+        <h3>Institucional</h3>
+        <p class="who">Prefeituras, câmaras, autarquias e consórcios com vários processos abertos.</p>
+        <div class="price txt">Proposta individual</div>
+        <p class="note">Escopo definido conforme o volume de processos e a equipe envolvida.</p>
+        <div class="plan-divider"></div>
+        <ul>
+          <li>Acompanhamento de todos os processos</li>
+          <li>Painel de prazos para a equipe interna</li>
+          <li>Relatório mensal de exposição</li>
+          <li>Defesa e recursos conforme demanda</li>
+          <li>Orientação preventiva à equipe</li>
+          <li>Contratação por dispensa ou inexigibilidade</li>
+        </ul>
+        <a href="#contato" class="btn btn-ghost" data-plan="Institucional">Falar com a equipe <span class="arr">→</span></a>
       </article>
     </div>
     <p class="plans-foot rv">Atuação jurídica prestada por Marco Antonio Lima da Cruz Filho, advogado inscrito na OAB/BA sob o nº 59.873, nos termos do Estatuto da Advocacia e do Código de Ética. A área do cliente é uma ferramenta de organização oferecida a quem é atendido e não substitui a orientação do advogado.</p>
+  </div>
+</section>
+
+<!-- HOW TO HIRE -->
+<section class="hire">
+  <div class="wrap">
+    <p class="sec-label rv"><b>06.1</b> Como contratar</p>
+    <h2 class="h2 rv">Do primeiro contato à defesa: <em>quatro passos</em>.</h2>
+    <div class="hire-steps">
+      <div class="hire-step rv">
+        <span class="hire-arrow">→</span>
+        <h3>Envie o caso</h3>
+        <p>Preencha o formulário ou mande o ofício por WhatsApp. Aceite foto, scan ou PDF.</p>
+        <span class="hs-tag">Leva 2 minutos</span>
+      </div>
+      <div class="hire-step rv">
+        <span class="hire-arrow">→</span>
+        <h3>Receba a análise</h3>
+        <p>Em até um dia útil, você recebe o prazo calculado e a estratégia recomendada.</p>
+        <span class="hs-tag">Sem custo inicial</span>
+      </div>
+      <div class="hire-step rv">
+        <span class="hire-arrow">→</span>
+        <h3>Proposta por escrito</h3>
+        <p>Honorários, escopo e prazos claros em contrato. Você decide se contrata.</p>
+        <span class="hs-tag">Sem surpresa</span>
+      </div>
+      <div class="hire-step rv">
+        <span class="hire-arrow">→</span>
+        <h3>Defesa em andamento</h3>
+        <p>Acompanhe tudo pela área do cliente. Envie documentos por WhatsApp ou e-mail a qualquer momento.</p>
+        <span class="hs-tag">Acesso à plataforma</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -552,6 +679,8 @@ footer{padding:3rem var(--gut) 2.5rem;border-top:1px solid var(--line);font-size
       <details><summary>Como a tecnologia entra no trabalho?</summary><p>Usamos ferramentas próprias para organizar prazos, documentos e precedentes, o que dá agilidade. Nenhuma peça sai sem leitura, revisão e assinatura de um advogado, que responde pessoalmente pelo trabalho.</p></details>
       <details><summary>Meus dados e documentos ficam protegidos?</summary><p>Sim. Tratamos tudo sob sigilo profissional e de acordo com a Lei Geral de Proteção de Dados. Os documentos são usados apenas no seu caso.</p></details>
       <details><summary>Quanto custa a defesa?</summary><p>Depende do processo: número de achados, valores envolvidos, fase e tribunal. Depois da análise inicial você recebe uma proposta por escrito, com escopo e honorários definidos. Nada é cobrado sem a sua concordância.</p></details>
+      <details><summary>Como envio os documentos do meu caso?</summary><p>Pelo formulário aqui do site, por WhatsApp ou por e-mail. Aceite foto do ofício, scan, PDF ou o link do processo eletrônico. Todos os documentos são protegidos por sigilo profissional.</p></details>
+      <details><summary>Atendo pela internet. Preciso ir presencialmente?</summary><p>Não. Os processos nos tribunais de contas são eletrônicos e toda a atuação é feita a distância: protocolo, consulta de pauta, sustentação oral por videoconferência. Você acompanha tudo pela área do cliente.</p></details>
     </div>
   </div>
 </section>
@@ -563,8 +692,25 @@ footer{padding:3rem var(--gut) 2.5rem;border-top:1px solid var(--line);font-size
       <p class="sec-label rv"><b>08</b> Contato</p>
       <h2 class="h2 rv">Conte o que chegou <em>até você</em>.</h2>
       <p class="intro rv">Responderemos em até um dia útil com o prazo calculado e os próximos passos. Se o seu prazo vence em menos de cinco dias, diga isso na mensagem.</p>
-      <div class="direct rv">
-        <div><span style="color:var(--mute)">E-mail</span><br><a href="mailto:lifecompany@lifecompany.app.br">lifecompany@lifecompany.app.br</a></div>
+      <div class="channels rv">
+        <a href="https://wa.me/5571999999999?text=Ol%C3%A1%2C%20recebi%20um%20of%C3%ADcio%20do%20Tribunal%20de%20Contas%20e%20preciso%20de%20orienta%C3%A7%C3%A3o." class="channel" target="_blank" rel="noopener">
+          <div class="ch-icon wpp"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.558 4.142 1.534 5.883L.054 23.498l5.763-1.512A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-2.007 0-3.867-.59-5.43-1.606l-.39-.232-3.416.896.912-3.33-.255-.404A9.787 9.787 0 012.182 12c0-5.418 4.4-9.818 9.818-9.818S21.818 6.582 21.818 12 17.418 21.818 12 21.818z"/></svg></div>
+          <div><b>WhatsApp</b><span>Envie o ofício por foto ou PDF</span></div>
+        </a>
+        <a href="mailto:lifecompany@lifecompany.app.br?subject=Zelo%20%C2%B7%20Novo%20caso" class="channel">
+          <div class="ch-icon mail"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="16" height="12" rx="2"/><path d="M2 4l8 6 8-6"/></svg></div>
+          <div><b>E-mail</b><span>lifecompany@lifecompany.app.br</span></div>
+        </a>
+      </div>
+      <div class="doc-flow rv" style="margin-top:2rem">
+        <h3><svg width="18" height="18" fill="none" stroke="var(--lacre)" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V4a2 2 0 00-2-2z"/><path d="M9 2v5l2-1.5L13 7V2"/></svg> Quais documentos enviar?</h3>
+        <ul>
+          <li>Ofício de citação, audiência ou notificação recebido</li>
+          <li>Número do processo (se tiver)</li>
+          <li>Relatório de auditoria ou instrução (se tiver acesso)</li>
+          <li>Documentos que você já tenha reunido sobre o caso</li>
+        </ul>
+        <p style="font-size:.82rem;color:var(--mute);margin-top:.6rem">Aceite foto do ofício, scan, PDF ou link do processo eletrônico. Tudo coberto por sigilo profissional.</p>
       </div>
     </div>
     <div class="rv">
@@ -599,15 +745,19 @@ footer{padding:3rem var(--gut) 2.5rem;border-top:1px solid var(--line);font-size
   <div class="foot-grid">
     <a href="#" class="brand" aria-label="Zelo"><span class="brand-word" style="font-size:1.2rem;color:var(--paper)">Zelo<i>.</i></span></a>
     <div>
+      <a href="#servicos">Serviços</a>
+      <a href="#metodo">Método</a>
+      <a href="#planos">Planos</a>
+      <a href="#duvidas">Dúvidas</a>
       <a href="app/">Área do cliente</a>
-      <a href="#" data-modal="termos">Termos de Uso</a>
+      <a href="#" data-modal="termos">Termos</a>
       <a href="#" data-modal="privacidade">Privacidade</a>
     </div>
   </div>
   <div class="foot-legal">
     Advocacia: Marco Antonio Lima da Cruz Filho, advogado, OAB/BA nº 59.873.<br>
     Zelo é o nome do método e da área do cliente utilizados no atendimento.<br>
-    Contato: lifecompany@lifecompany.app.br · © 2026 Zelo
+    Contato: lifecompany@lifecompany.app.br · WhatsApp: (71) 99999-9999 · © 2026 Zelo
   </div>
 </footer>
 
@@ -756,6 +906,12 @@ if(new URLSearchParams(location.search).get('enviado')==='1'){document.getElemen
   if(reduce){frame();return}
   (function loop(){requestAnimationFrame(loop);if(vis&&!document.hidden)frame()})();
 })();
+
+/* ---------- hamburger ---------- */
+const hamBtn=document.getElementById('ham-btn'),mobMenu=document.getElementById('mob-menu'),mobClose=document.getElementById('mob-close');
+hamBtn.addEventListener('click',()=>mobMenu.classList.add('open'));
+mobClose.addEventListener('click',()=>mobMenu.classList.remove('open'));
+mobMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mobMenu.classList.remove('open')));
 
 /* ---------- service worker ---------- */
 if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));

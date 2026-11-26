@@ -431,18 +431,18 @@ footer{padding:3rem var(--gut) 2.5rem;border-top:1px solid var(--line);font-size
     <p class="sec-label rv"><b>01</b> O que está em jogo</p>
     <h2 class="h2 rv">Um ofício do Tribunal de Contas parece papel. <em>Na prática, é patrimônio, cargo e elegibilidade.</em></h2>
     <div class="stakes-grid">
-      <article class=”stake rv tilt”>
-        <div class=”stake-n”>15<small>dias</small></div>
+      <article class="stake rv tilt">
+        <div class="stake-n">15<small>dias</small></div>
         <p>Prazo usual para responder citação ou audiência no TCU. Documentos de anos atrás precisam ser reunidos nesse intervalo.</p>
         <cite>Lei 8.443/1992, art. 12</cite>
       </article>
-      <article class=”stake rv tilt”>
-        <div class=”stake-n”>8<small>anos</small></div>
+      <article class="stake rv tilt">
+        <div class="stake-n">8<small>anos</small></div>
         <p>De inelegibilidade quando as contas são rejeitadas por irregularidade insanável com ato doloso de improbidade.</p>
         <cite>LC 64/1990, art. 1º, I, “g”</cite>
       </article>
-      <article class=”stake rv tilt”>
-        <div class=”stake-n”>33<small>tribunais</small></div>
+      <article class="stake rv tilt">
+        <div class="stake-n">33<small>tribunais</small></div>
         <p>Cada um com lei orgânica, regimento e jurisprudência próprios. Defesa genérica não funciona em nenhum deles.</p>
         <cite>CF/1988, arts. 71 a 75</cite>
       </article>
@@ -729,10 +729,8 @@ footer{padding:3rem var(--gut) 2.5rem;border-top:1px solid var(--line);font-size
 <script>
 /* ---------- tribunais ---------- */
 const TRIBUNAIS=["TCU","TCDF","TCE-AC","TCE-AL","TCE-AM","TCE-AP","TCE-BA","TCE-CE","TCE-ES","TCE-GO","TCE-MA","TCE-MG","TCE-MS","TCE-MT","TCE-PA","TCE-PB","TCE-PE","TCE-PI","TCE-PR","TCE-RJ","TCE-RN","TCE-RO","TCE-RR","TCE-RS","TCE-SC","TCE-SE","TCE-SP","TCE-TO","TCM-BA","TCM-GO","TCM-PA","TCM-RJ","TCM-SP"];
-const cloud=document.getElementById('courts'),sel=document.getElementById('f-trib');
-TRIBUNAIS.forEach(t=>{const s=document.createElement('span');s.className='court'+(t==='TCU'?' main':'');s.textContent=t;cloud.appendChild(s);
-  const o=document.createElement('option');o.textContent=t;sel.appendChild(o)});
-sel.insertAdjacentHTML('afterbegin','<option value="">Selecione</option>');sel.value='';
+const cloud=document.getElementById('courts');
+TRIBUNAIS.forEach(t=>{const s=document.createElement('span');s.className='court'+(t==='TCU'?' main':'');s.textContent=t;cloud.appendChild(s)});
 
 /* ---------- headline por palavra ---------- */
 (()=>{const h=document.getElementById('h1');let i=0;
@@ -763,11 +761,6 @@ document.querySelectorAll('[data-modal]').forEach(a=>a.addEventListener('click',
 document.querySelectorAll('.modal').forEach(m=>{m.addEventListener('click',e=>{if(e.target===m||e.target.classList.contains('modal-x'))m.classList.remove('open')})});
 addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('.modal.open').forEach(m=>m.classList.remove('open'))});
 
-/* ---------- plano -> formulário ---------- */
-document.querySelectorAll('[data-plan]').forEach(b=>b.addEventListener('click',()=>{const s=document.getElementById('f-serv'),p=b.dataset.plan;
-  [...s.options].forEach(o=>{if((p==='Institucional'&&o.text.startsWith('Atendimento institucional'))||(p!=='Institucional'&&o.text.startsWith('Análise')))s.value=o.value||o.text})}));
-
-/* ---------- form ok ---------- */
 
 /* ---------- cena 3D ---------- */
 (function(){

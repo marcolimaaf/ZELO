@@ -10,9 +10,13 @@
 <meta property="og:description" content="Análise, acompanhamento, defesa e recurso em processos do TCU, TCEs e TCMs.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
-<meta property="og:image" content="https://marcolimaaf.github.io/ZELO/assets/icon-512.png">
+<meta property="og:image" content="https://marcolimaaf.github.io/ZELO/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Zelo. Defesa perante os Tribunais de Contas">
 <meta property="og:url" content="https://marcolimaaf.github.io/ZELO/">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://marcolimaaf.github.io/ZELO/assets/og.jpg">
 <meta name="twitter:title" content="Zelo · Defesa perante os Tribunais de Contas">
 <meta name="twitter:description" content="Análise, defesa e recurso em processos do TCU, TCEs e TCMs. Advocacia especializada em controle externo.">
 <meta name="keywords" content="tribunal de contas, defesa, TCU, TCE, TCM, recurso, citação, audiência, tomada de contas especial, advogado, controle externo, prestação de contas">
@@ -347,8 +351,9 @@ footer{padding:3rem var(--gut) 2.5rem;border-top:1px solid var(--line);font-size
 @media(max-width:600px){
   .nav .btn-ghost{display:none}
   .hero{align-items:end;padding-bottom:6.5rem}
-  .hero::before{background:linear-gradient(180deg,rgba(14,15,18,.2) 0,rgba(14,15,18,.6) 45%,var(--ink) 80%)}
+  .hero::before{background:linear-gradient(180deg,rgba(14,15,18,.1) 0,rgba(14,15,18,.75) 30%,rgba(14,15,18,.85) 60%,var(--ink) 92%)}
   .hero-meta{display:none}
+  .hero .kicker{display:none}
   .hero-cta .btn{flex:1 1 100%}
   .row2{grid-template-columns:1fr}
   .phone-stage{min-height:auto;padding:1rem 0}
@@ -363,8 +368,124 @@ footer{padding:3rem var(--gut) 2.5rem;border-top:1px solid var(--line);font-size
   .hero h1 .w{opacity:1;transform:none}
 }
 </style>
+<style>
+/* ===== ELITE LAYER ===== */
+@property --ang{syntax:'<angle>';inherits:false;initial-value:0deg}
+@keyframes spinang{to{--ang:360deg}}
+
+/* abertura */
+.veil{position:fixed;inset:0;z-index:700;background:#08090B;display:grid;place-items:center;animation:veilOut 1.05s cubic-bezier(.8,0,.2,1) 1.55s forwards;pointer-events:none}
+.veil-in{display:grid;justify-items:center;gap:1.4rem}
+.veil-seal{width:92px;height:92px;opacity:0;transform:scale(1.9) rotate(-18deg);filter:blur(8px);animation:stamp .7s cubic-bezier(.2,1.4,.4,1) .15s forwards}
+.veil-word{font-family:var(--serif);font-size:1.9rem;letter-spacing:.32em;padding-left:.32em;color:var(--paper);opacity:0;animation:fadeUp .7s ease .7s forwards}
+.veil-word i{color:var(--lacre);font-style:normal}
+.veil-line{width:0;height:1px;background:linear-gradient(90deg,transparent,var(--brass),transparent);animation:lineGrow .9s ease .55s forwards}
+@keyframes stamp{to{opacity:1;transform:none;filter:none}}
+@keyframes fadeUp{from{transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes lineGrow{to{width:220px}}
+@keyframes veilOut{to{clip-path:inset(0 0 100% 0);visibility:hidden}}
+html.noveil .veil{display:none}
+
+/* progresso */
+.progress{position:fixed;top:0;left:0;right:0;height:2px;z-index:150;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--lacre),var(--brass-soft))}
+
+/* cursor */
+.cur,.cur-r{position:fixed;left:0;top:0;z-index:650;pointer-events:none;border-radius:50%;display:none}
+html.fine .cur,html.fine .cur-r{display:block}
+html.fine,html.fine a,html.fine button,html.fine summary{cursor:none}
+.cur{width:6px;height:6px;margin:-3px 0 0 -3px;background:var(--brass-soft)}
+.cur-r{width:40px;height:40px;margin:-20px 0 0 -20px;border:1px solid rgba(227,201,143,.55);transition:width .3s,height .3s,margin .3s,background .3s,border-color .3s,opacity .3s}
+.cur-r.big{width:76px;height:76px;margin:-38px 0 0 -38px;background:rgba(201,164,92,.10);border-color:var(--brass)}
+.cur-r.on-paper{border-color:rgba(14,15,18,.45)}
+.cur.on-paper{background:var(--lacre)}
+
+/* ouro */
+.hero h1 em .w,.h2 em,.gold{background:linear-gradient(100deg,#a87b35 0%,#f6e3ad 22%,#c9a45c 42%,#fff6d6 52%,#c9a45c 64%,#8e6a2e 100%);background-size:260% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation-name:wIn,sheen;animation-duration:.9s,8s;animation-timing-function:cubic-bezier(.2,.8,.2,1),ease-in-out;animation-iteration-count:1,infinite;animation-fill-mode:forwards,none}
+.h2 em,.gold{animation:sheen 8s ease-in-out infinite;padding-right:.06em}
+.services .h2 em,.plans .h2 em{background:none;color:var(--lacre);animation:none}
+@keyframes sheen{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.hero h1{font-size:clamp(2.6rem,6vw,5.6rem);text-shadow:0 10px 60px rgba(0,0,0,.5)}
+
+/* títulos em cortina */
+.h2.rv{-webkit-mask-image:linear-gradient(180deg,#000 40%,transparent 60%);mask-image:linear-gradient(180deg,#000 40%,transparent 60%);-webkit-mask-size:100% 250%;mask-size:100% 250%;-webkit-mask-position:0 100%;mask-position:0 100%;transform:translateY(40px)}
+.h2.rv.in{-webkit-mask-position:0 0;mask-position:0 0;transform:none;transition:-webkit-mask-position 1.4s cubic-bezier(.7,0,.2,1),mask-position 1.4s cubic-bezier(.7,0,.2,1),transform 1.2s cubic-bezier(.7,0,.2,1),opacity .8s}
+
+/* botões */
+.btn-lacre{position:relative;overflow:hidden;isolation:isolate;background:linear-gradient(135deg,#d9462b,var(--lacre) 55%,#9e2915);box-shadow:0 12px 34px -12px rgba(194,54,31,.75),inset 0 1px 0 rgba(255,255,255,.22)}
+.btn-lacre::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(110deg,transparent 30%,rgba(255,240,210,.45) 50%,transparent 70%);transform:translateX(-130%);transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.btn-lacre:hover::after{transform:translateX(130%)}
+.hero-cta .btn-lacre::after,.wpp-cta-box .btn-lacre::after{animation:autoshine 5s ease-in-out 3s infinite}
+@keyframes autoshine{0%,70%{transform:translateX(-130%)}90%,100%{transform:translateX(130%)}}
+.btn-ghost{backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);background:rgba(255,255,255,.02)}
+.mag{transition:transform .35s cubic-bezier(.2,.8,.2,1),background .25s,color .25s,border-color .25s}
+
+/* luz que segue o mouse */
+.spot{position:relative}
+.spot::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .4s;background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(227,201,143,.16),transparent 45%)}
+.spot:hover::after{opacity:1}
+.plans .plan.spot:not(.feature)::after{background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(194,54,31,.08),transparent 45%)}
+.stake{border-color:rgba(201,164,92,.14);background:linear-gradient(160deg,#1d2027,#121418 70%)}
+.stake:hover{border-color:rgba(201,164,92,.45);box-shadow:0 40px 80px -40px rgba(0,0,0,.9),0 0 0 1px rgba(201,164,92,.12)}
+.stake-n span{background:linear-gradient(180deg,#fff7e0,#c9a45c 70%,#7d5f2a);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* borda dourada girando */
+.ring-border{border:1px solid transparent!important;background:linear-gradient(var(--rb-bg,var(--ink)),var(--rb-bg,var(--ink))) padding-box,conic-gradient(from var(--ang),rgba(201,164,92,.15) 0 55%,var(--brass-soft) 72%,var(--lacre-hot) 82%,rgba(201,164,92,.15) 95%) border-box!important;animation:spinang 7s linear infinite}
+.plan.feature{box-shadow:0 50px 90px -40px rgba(14,15,18,.7)}
+
+/* compromisso */
+.statement{background:radial-gradient(ellipse 80% 70% at 50% 100%,rgba(194,54,31,.10),transparent 70%),var(--ink);border-top:1px solid var(--line)}
+.big-say{font-family:var(--serif);font-weight:500;font-size:clamp(2rem,5.4vw,4.6rem);line-height:1.12;letter-spacing:-.02em;max-width:1150px}
+.big-say .sw{opacity:.13;transition:opacity .5s,color .5s}
+.big-say .sw.lit{opacity:1}
+.big-say em .sw.lit{color:var(--brass-soft)}
+.big-say em{font-style:italic;font-weight:400}
+
+/* tribunais em faixas */
+.court-rows{margin-top:3.2rem;display:grid;gap:.4rem;mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.crow{overflow:hidden}
+.crow-t{display:flex;width:max-content;animation:mq 60s linear infinite}
+.crow.rev .crow-t{animation-direction:reverse;animation-duration:70s}
+.crow-t span{font-family:var(--serif);font-size:clamp(2.4rem,6vw,5rem);font-weight:500;line-height:1.15;padding:0 .45em;color:transparent;-webkit-text-stroke:1px rgba(242,237,227,.28);transition:color .3s,-webkit-text-stroke-color .3s;white-space:nowrap}
+.crow-t span:hover{color:var(--paper);-webkit-text-stroke-color:transparent}
+.crow-t span.main{color:var(--brass-soft);-webkit-text-stroke-color:transparent}
+.crow-t span::after{content:"·";color:var(--lacre);-webkit-text-stroke:0;padding-left:.9em}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* contato */
+.wpp-cta-box{--rb-bg:#121216;position:relative;border-radius:2px;box-shadow:0 60px 120px -50px rgba(194,54,31,.45);align-self:center}
+.wpp-ic{position:relative;width:84px;height:84px;margin:0 auto 1.6rem;display:grid;place-items:center;border-radius:50%;background:radial-gradient(circle at 35% 30%,rgba(227,201,143,.25),rgba(201,164,92,.06));border:1px solid rgba(201,164,92,.35)}
+.wpp-ic::before,.wpp-ic::after{content:"";position:absolute;inset:-1px;border-radius:50%;border:1px solid var(--brass);animation:pulse 2.8s ease-out infinite}
+.wpp-ic::after{animation-delay:1.4s}
+@keyframes pulse{from{transform:scale(1);opacity:.7}to{transform:scale(1.9);opacity:0}}
+
+/* celular */
+.screen .glare{position:absolute;inset:0;pointer-events:none;z-index:5;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.10) 48%,transparent 60%);transform:translateX(var(--gx,0%));transition:transform .2s ease-out}
+
+/* rodapé */
+.foot-mark{font-family:var(--serif);font-weight:500;font-size:clamp(5rem,24vw,22rem);line-height:.78;text-align:center;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1px rgba(201,164,92,.28);margin:3rem auto -1.2rem;overflow:hidden;user-select:none;padding-top:.08em;background:linear-gradient(180deg,rgba(201,164,92,.16),transparent 75%);-webkit-background-clip:text;background-clip:text}
+.foot-mark i{font-style:normal;-webkit-text-stroke-color:rgba(194,54,31,.6)}
+
+@media(max-width:1000px){.big-say{font-size:clamp(1.8rem,8vw,3rem)}}
+@media(prefers-reduced-motion:reduce){
+  .veil{display:none}
+  .h2.rv{-webkit-mask-image:none;mask-image:none}
+  .big-say .sw{opacity:1}
+  .hero h1 em .w,.h2 em,.gold{color:var(--brass-soft);background:none}
+}
+</style>
+<script>
+try{if(sessionStorage.getItem('zelo.veil'))document.documentElement.classList.add('noveil');sessionStorage.setItem('zelo.veil','1')}catch(e){}
+if(matchMedia('(pointer:fine)').matches)document.documentElement.classList.add('fine');
+</script>
 </head>
 <body>
+<div class="veil" aria-hidden="true"><div class="veil-in">
+  <svg class="veil-seal" viewBox="0 0 64 64"><defs><radialGradient id="vs" cx=".35" cy=".3"><stop offset="0" stop-color="#ec5a3e"/><stop offset=".5" stop-color="#C2361F"/><stop offset="1" stop-color="#6e180c"/></radialGradient></defs><circle cx="32" cy="32" r="30" fill="url(#vs)"/><circle cx="32" cy="32" r="24" fill="none" stroke="#F2EDE3" stroke-opacity=".35"/><path d="M21 22h22L21 42h22" fill="none" stroke="#F2EDE3" stroke-width="4" stroke-linecap="square"/></svg>
+  <div class="veil-line"></div>
+  <div class="veil-word">Zelo<i>.</i></div>
+</div></div>
+<div class="progress" id="prog"></div>
+<div class="cur" id="cur"></div><div class="cur-r" id="curR"></div>
 
 <nav class="nav" id="nav">
   <a href="#" class="brand" aria-label="Zelo, início">
@@ -400,8 +521,8 @@ footer{padding:3rem var(--gut) 2.5rem;border-top:1px solid var(--line);font-size
     <h1 id="h1">Sua defesa no Tribunal de Contas, <em>feita por quem vive o controle externo</em><span class="dot">.</span></h1>
     <p class="lede">Do primeiro ofício ao último recurso: leitura dos autos, defesa ponto a ponto e advogado responsável pelo seu caso.</p>
     <div class="hero-cta">
-      <a href="#contato" class="btn btn-lacre">Quero uma análise do meu processo <span class="arr">→</span></a>
-      <a href="#servicos" class="btn btn-ghost">Como trabalhamos</a>
+      <a href="#contato" class="btn btn-lacre mag">Quero uma análise do meu processo <span class="arr">→</span></a>
+      <a href="#servicos" class="btn btn-ghost mag">Como trabalhamos</a>
     </div>
   </div>
   <div class="hero-meta">LEI 8.443/1992 · ART. 12<br>CITAÇÃO · AUDIÊNCIA · RECURSO<br>ATENDIMENTO EM TODO O BRASIL</div>
@@ -431,18 +552,18 @@ footer{padding:3rem var(--gut) 2.5rem;border-top:1px solid var(--line);font-size
     <p class="sec-label rv"><b>01</b> O que está em jogo</p>
     <h2 class="h2 rv">Um ofício do Tribunal de Contas parece papel. <em>Na prática, é patrimônio, cargo e elegibilidade.</em></h2>
     <div class="stakes-grid">
-      <article class="stake rv tilt">
-        <div class="stake-n">15<small>dias</small></div>
+      <article class="stake rv tilt spot">
+        <div class="stake-n"><span data-count="15">15</span><small>dias</small></div>
         <p>Prazo usual para responder citação ou audiência no TCU. Documentos de anos atrás precisam ser reunidos nesse intervalo.</p>
         <cite>Lei 8.443/1992, art. 12</cite>
       </article>
-      <article class="stake rv tilt">
-        <div class="stake-n">8<small>anos</small></div>
+      <article class="stake rv tilt spot">
+        <div class="stake-n"><span data-count="8">8</span><small>anos</small></div>
         <p>De inelegibilidade quando as contas são rejeitadas por irregularidade insanável com ato doloso de improbidade.</p>
         <cite>LC 64/1990, art. 1º, I, “g”</cite>
       </article>
-      <article class="stake rv tilt">
-        <div class="stake-n">33<small>tribunais</small></div>
+      <article class="stake rv tilt spot">
+        <div class="stake-n"><span data-count="33">33</span><small>tribunais</small></div>
         <p>Cada um com lei orgânica, regimento e jurisprudência próprios. Defesa genérica não funciona em nenhum deles.</p>
         <cite>CF/1988, arts. 71 a 75</cite>
       </article>
@@ -494,6 +615,14 @@ footer{padding:3rem var(--gut) 2.5rem;border-top:1px solid var(--line);font-size
 </section>
 
 
+<!-- STATEMENT -->
+<section class="statement" aria-label="Compromisso">
+  <div class="wrap">
+    <p class="sec-label"><b>§</b> Compromisso</p>
+    <p class="big-say" id="say">Cada achado recebe resposta. Cada prazo é contado no dia. Cada peça nasce dos autos, <em>nunca de modelo pronto.</em></p>
+  </div>
+</section>
+
 <!-- PLATFORM -->
 <section class="platform" id="plataforma">
   <div class="wrap plat-grid">
@@ -531,7 +660,7 @@ footer{padding:3rem var(--gut) 2.5rem;border-top:1px solid var(--line);font-size
             <div class="scr-t">Notas de empenho e liquidação</div>
             <div class="bar"><i style="width:64%;background:var(--paper-dim)"></i></div>
           </div>
-          <div class="scr-tabs"><span class="on">INÍCIO</span><span>PRAZOS</span><span>RECURSOS</span><span>EQUIPE</span></div>
+          <div class="glare"></div><div class="scr-tabs"><span class="on">INÍCIO</span><span>PRAZOS</span><span>RECURSOS</span><span>EQUIPE</span></div>
         </div>
       </div>
     </div>
@@ -543,7 +672,8 @@ footer{padding:3rem var(--gut) 2.5rem;border-top:1px solid var(--line);font-size
   <div class="wrap">
     <p class="sec-label rv"><b>04</b> Onde atuamos</p>
     <h2 class="h2 rv">Do TCU ao tribunal de contas <em>do seu município</em>.</h2>
-    <div class="courts-cloud rv" id="courts"></div>
+    <div class="court-rows rv" id="courts" aria-hidden="true"><div class="crow"><div class="crow-t"></div></div><div class="crow rev"><div class="crow-t"></div></div></div>
+    <p class="sr" id="courts-sr"></p>
   </div>
 </section>
 
@@ -554,7 +684,7 @@ footer{padding:3rem var(--gut) 2.5rem;border-top:1px solid var(--line);font-size
     <h2 class="h2 rv">Escolha a frente <em>que o seu caso pede.</em></h2>
     <p class="intro rv">Honorários definidos por escrito, antes de qualquer cobrança.</p>
     <div class="plan-grid">
-      <article class="plan feature rv">
+      <article class="plan feature rv spot ring-border">
         <h3>Análise do processo</h3>
         <p class="who">Recebeu ofício do Tribunal de Contas e precisa entender o cenário.</p>
         <div class="price txt">Consulte valores</div>
@@ -569,7 +699,7 @@ footer{padding:3rem var(--gut) 2.5rem;border-top:1px solid var(--line);font-size
         </ul>
         <a href="#contato" class="btn btn-lacre" data-plan="Gestor">Enviar meu caso <span class="arr">→</span></a>
       </article>
-      <article class="plan rv">
+      <article class="plan rv spot">
         <span class="plan-tag" style="border:1px solid rgba(14,15,18,.2)">Atuação completa</span>
         <h3>Defesa e recurso</h3>
         <p class="who">Da peça ao julgamento: defesa, prova, memoriais e recursos.</p>
@@ -585,7 +715,7 @@ footer{padding:3rem var(--gut) 2.5rem;border-top:1px solid var(--line);font-size
         </ul>
         <a href="#contato" class="btn btn-ghost" data-plan="Defesa e recurso">Enviar meu caso <span class="arr">→</span></a>
       </article>
-      <article class="plan rv">
+      <article class="plan rv spot">
         <span class="plan-tag inst">Órgão público</span>
         <h3>Institucional</h3>
         <p class="who">Prefeituras, câmaras e autarquias com vários processos abertos.</p>
@@ -602,7 +732,7 @@ footer{padding:3rem var(--gut) 2.5rem;border-top:1px solid var(--line);font-size
         <a href="#contato" class="btn btn-ghost" data-plan="Institucional">Falar com a equipe <span class="arr">→</span></a>
       </article>
     </div>
-    <p class="plans-foot rv">Para consultar valores, envie seu caso pelo formulário ou <a href="https://wa.me/5571997437325?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20os%20honor%C3%A1rios%20para%20defesa%20no%20Tribunal%20de%20Contas." style="color:var(--brass);text-decoration:underline">WhatsApp</a>. Honorários definidos por escrito, conforme o Estatuto da Advocacia e o Código de Ética. OAB/BA nº 59.873 · OAB/SP nº 519.165.</p>
+    <p class="plans-foot rv">Para consultar valores, envie seu caso pelo <a href="https://wa.me/5571997437325?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20os%20honor%C3%A1rios%20para%20defesa%20no%20Tribunal%20de%20Contas." style="color:var(--brass);text-decoration:underline">WhatsApp</a> ou por e-mail. Honorários definidos por escrito, conforme o Estatuto da Advocacia e o Código de Ética. OAB/BA nº 59.873 · OAB/SP nº 519.165.</p>
   </div>
 </section>
 
@@ -614,10 +744,10 @@ footer{padding:3rem var(--gut) 2.5rem;border-top:1px solid var(--line);font-size
     <h2 class="h2 rv">Perguntas <em>frequentes.</em></h2>
     <div class="faq-list rv">
       <details><summary>Preciso de advogado no Tribunal de Contas?</summary><p>Não é obrigatório, mas os processos envolvem contabilidade pública, licitações e responsabilização pessoal. Defesa técnica muda o resultado com frequência.</p></details>
-      <details><summary>Recebi o ofício hoje. Ainda dá tempo?</summary><p>Na maioria dos casos, sim. Envie o ofício pelo formulário ou WhatsApp. Calculamos o prazo exato e dizemos o que é possível fazer.</p></details>
+      <details><summary>Recebi o ofício hoje. Ainda dá tempo?</summary><p>Na maioria dos casos, sim. Envie o ofício pelo WhatsApp ou e-mail. Calculamos o prazo exato e dizemos o que é possível fazer.</p></details>
       <details><summary>Atuam em qualquer Tribunal de Contas?</summary><p>Sim. Processos eletrônicos permitem atuar no TCU e em tribunais de qualquer estado, respeitando lei orgânica e regimento de cada um.</p></details>
       <details><summary>Preciso ir presencialmente?</summary><p>Não. Toda a atuação é remota: protocolo, consulta de pauta e sustentação oral por videoconferência.</p></details>
-      <details><summary>Como envio os documentos?</summary><p>Pelo formulário, WhatsApp ou e-mail. Aceite foto, scan, PDF ou link do processo eletrônico. Tudo coberto por sigilo profissional.</p></details>
+      <details><summary>Como envio os documentos?</summary><p>Pelo WhatsApp ou e-mail. Aceitamos foto, scan, PDF ou link do processo eletrônico. Tudo coberto por sigilo profissional.</p></details>
     </div>
   </div>
 </section>
@@ -647,15 +777,15 @@ footer{padding:3rem var(--gut) 2.5rem;border-top:1px solid var(--line);font-size
           <li>Relatório de auditoria ou instrução (se tiver acesso)</li>
           <li>Documentos que você já tenha reunido sobre o caso</li>
         </ul>
-        <p style="font-size:.82rem;color:var(--mute);margin-top:.6rem">Aceite foto do ofício, scan, PDF ou link do processo eletrônico. Tudo coberto por sigilo profissional.</p>
+        <p style="font-size:.82rem;color:var(--mute);margin-top:.6rem">Aceitamos foto do ofício, scan, PDF ou link do processo eletrônico. Tudo coberto por sigilo profissional.</p>
       </div>
     </div>
-    <div class="rv wpp-cta-box">
+    <div class="rv wpp-cta-box ring-border">
       <div style="text-align:center;padding:3rem 2rem">
-        <div style="font-size:3rem;margin-bottom:1rem"><svg width="48" height="48" fill="var(--brass)" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.558 4.142 1.534 5.883L.054 23.498l5.763-1.512A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-2.007 0-3.867-.59-5.43-1.606l-.39-.232-3.416.896.912-3.33-.255-.404A9.787 9.787 0 012.182 12c0-5.418 4.4-9.818 9.818-9.818S21.818 6.582 21.818 12 17.418 21.818 12 21.818z"/></svg></div>
+        <div class="wpp-ic"><svg width="38" height="38" fill="var(--brass)" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.558 4.142 1.534 5.883L.054 23.498l5.763-1.512A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-2.007 0-3.867-.59-5.43-1.606l-.39-.232-3.416.896.912-3.33-.255-.404A9.787 9.787 0 012.182 12c0-5.418 4.4-9.818 9.818-9.818S21.818 6.582 21.818 12 17.418 21.818 12 21.818z"/></svg></div>
         <h3 style="font-family:var(--serif);font-size:1.6rem;margin-bottom:.5rem">Fale diretamente pelo WhatsApp</h3>
         <p style="color:var(--mute);margin-bottom:1.5rem;max-width:28ch;margin-inline:auto">Envie o ofício por foto ou PDF. Resposta em até 1 dia útil.</p>
-        <a href="https://wa.me/5571997437325?text=Ol%C3%A1%2C%20recebi%20um%20of%C3%ADcio%20do%20Tribunal%20de%20Contas%20e%20preciso%20de%20orienta%C3%A7%C3%A3o." class="btn btn-lacre" target="_blank" rel="noopener" style="font-size:1.1rem;padding:1rem 2.5rem">Abrir conversa no WhatsApp <span class="arr">→</span></a>
+        <a href="https://wa.me/5571997437325?text=Ol%C3%A1%2C%20recebi%20um%20of%C3%ADcio%20do%20Tribunal%20de%20Contas%20e%20preciso%20de%20orienta%C3%A7%C3%A3o." class="btn btn-lacre mag" target="_blank" rel="noopener" style="font-size:1.05rem;padding:1.1rem 2.4rem">Abrir conversa no WhatsApp <span class="arr">→</span></a>
         <p style="font-size:.78rem;color:var(--mute);margin-top:1.2rem">(71) 99743-7325 · Sigilo profissional garantido</p>
       </div>
     </div>
@@ -674,6 +804,7 @@ footer{padding:3rem var(--gut) 2.5rem;border-top:1px solid var(--line);font-size
       <a href="#" data-modal="privacidade">Privacidade</a>
     </div>
   </div>
+  <div class="foot-mark" aria-hidden="true">Zelo<i>.</i></div>
   <div class="foot-legal">
     Advocacia: Marco Antonio Lima da Cruz Filho, advogado, OAB/BA nº 59.873 · OAB/SP nº 519.165.<br>
     Zelo é o nome do método e da área do cliente utilizados no atendimento.<br>
@@ -711,11 +842,11 @@ footer{padding:3rem var(--gut) 2.5rem;border-top:1px solid var(--line);font-size
     <h2>Política de Privacidade</h2>
     <p><strong>Última atualização:</strong> 24 de novembro de 2026. Esta política segue a Lei 13.709/2018 (LGPD).</p>
     <h3>1. Dados que coletamos</h3>
-    <p>Pelo formulário: nome, cargo, e-mail, telefone, tribunal e o resumo do caso. Na área do cliente, os dados de processos que você cadastrar ficam salvos no seu próprio aparelho, até que você os envie à equipe.</p>
+    <p>Pelo WhatsApp ou e-mail: nome, contato, cargo, tribunal, o resumo do caso e os documentos que você decidir enviar. Na área do cliente, os dados de processos que você cadastrar ficam salvos no seu próprio aparelho, até que você os envie à equipe.</p>
     <h3>2. Para que usamos</h3>
     <ul><li>Responder ao seu pedido e preparar proposta (procedimentos preliminares a contrato, art. 7º, V);</li><li>Executar o contrato e cumprir obrigações legais e fiscais (art. 7º, II e V);</li><li>Exercer direitos em processo administrativo ou judicial (art. 7º, VI).</li></ul>
     <h3>3. Compartilhamento</h3>
-    <p>Usamos fornecedores para envio de formulários, e-mail e hospedagem, contratados com dever de confidencialidade. Não vendemos dados. Documentos de processos são cobertos por sigilo profissional.</p>
+    <p>Usamos fornecedores de mensagens, e-mail e hospedagem, contratados com dever de confidencialidade. Não vendemos dados. Documentos de processos são cobertos por sigilo profissional.</p>
     <h3>4. Guarda</h3>
     <p>Mantemos os dados pelo tempo do atendimento e pelos prazos legais aplicáveis. Registros de acesso são guardados por 6 meses (Marco Civil da Internet, art. 15).</p>
     <h3>5. Seus direitos</h3>
@@ -729,11 +860,14 @@ footer{padding:3rem var(--gut) 2.5rem;border-top:1px solid var(--line);font-size
 <script>
 /* ---------- tribunais ---------- */
 const TRIBUNAIS=["TCU","TCDF","TCE-AC","TCE-AL","TCE-AM","TCE-AP","TCE-BA","TCE-CE","TCE-ES","TCE-GO","TCE-MA","TCE-MG","TCE-MS","TCE-MT","TCE-PA","TCE-PB","TCE-PE","TCE-PI","TCE-PR","TCE-RJ","TCE-RN","TCE-RO","TCE-RR","TCE-RS","TCE-SC","TCE-SE","TCE-SP","TCE-TO","TCM-BA","TCM-GO","TCM-PA","TCM-RJ","TCM-SP"];
-const cloud=document.getElementById('courts');
-TRIBUNAIS.forEach(t=>{const s=document.createElement('span');s.className='court'+(t==='TCU'?' main':'');s.textContent=t;cloud.appendChild(s)});
+(()=>{const rows=document.querySelectorAll('#courts .crow-t'),half=Math.ceil(TRIBUNAIS.length/2);
+  [TRIBUNAIS.slice(0,half),TRIBUNAIS.slice(half).concat(['TCU'])].forEach((list,k)=>{
+    const html=list.map(t=>`<span${t==='TCU'?' class="main"':''}>${t}</span>`).join('');rows[k].innerHTML=html+html});
+  document.getElementById('courts-sr').textContent='Tribunais atendidos: '+TRIBUNAIS.join(', ')+'.'})();
+const VEIL=!document.documentElement.classList.contains('noveil')&&!matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 /* ---------- headline por palavra ---------- */
-(()=>{const h=document.getElementById('h1');let i=0;
+(()=>{const h=document.getElementById('h1');let i=VEIL?24:0;
   const wrap=n=>{[...n.childNodes].forEach(c=>{
     if(c.nodeType===3){const f=document.createDocumentFragment();c.textContent.split(/(\s+)/).forEach(p=>{if(!p)return;if(/^\s+$/.test(p)){f.appendChild(document.createTextNode(p));return}
       const s=document.createElement('span');s.className='w';s.style.animationDelay=(.15+i++*.06)+'s';s.textContent=p;f.appendChild(s)});c.replaceWith(f)}
@@ -752,9 +886,45 @@ const fine=matchMedia('(pointer:fine)').matches;
 if(fine)document.querySelectorAll('.tilt').forEach(c=>{
   c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform=`rotateY(${x*14}deg) rotateX(${-y*14}deg)`});
   c.addEventListener('mouseleave',()=>c.style.transform='')});
-const phone=document.getElementById('phone');
+const phone=document.getElementById('phone'),glare=phone.querySelector('.glare');
 if(fine)document.querySelector('.phone-stage').addEventListener('mousemove',e=>{const r=e.currentTarget.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
-  phone.style.transform=`rotateY(${-22+x*24}deg) rotateX(${8-y*16}deg) rotateZ(2deg)`});
+  phone.style.transform=`rotateY(${-22+x*24}deg) rotateX(${8-y*16}deg) rotateZ(2deg)`;glare.style.setProperty('--gx',(x*-120)+'%')});
+
+/* ---------- luz que segue o mouse ---------- */
+if(fine)document.querySelectorAll('.spot').forEach(c=>c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect();
+  c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px')}));
+
+/* ---------- botões magnéticos ---------- */
+if(fine)document.querySelectorAll('.mag').forEach(b=>{
+  b.addEventListener('pointermove',e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.22}px,${(e.clientY-r.top-r.height/2)*.32}px)`});
+  b.addEventListener('pointerleave',()=>b.style.transform='')});
+
+/* ---------- contadores ---------- */
+const cio=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;cio.unobserve(e.target);
+  const el=e.target,end=+el.dataset.count,t0=performance.now(),d=1600;
+  (function step(t){const k=Math.min(1,(t-t0)/d),v=Math.round(end*(1-Math.pow(1-k,4)));el.textContent=v;if(k<1)requestAnimationFrame(step)})(t0)}),{threshold:.6});
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.querySelectorAll('[data-count]').forEach(el=>{el.textContent='0';cio.observe(el)});
+
+/* ---------- frase que acende ---------- */
+const say=document.getElementById('say');
+(function split(n){[...n.childNodes].forEach(c=>{if(c.nodeType===3){const f=document.createDocumentFragment();
+  c.textContent.split(/(\s+)/).forEach(p=>{if(!p)return;if(/^\s+$/.test(p)){f.appendChild(document.createTextNode(p));return}const s=document.createElement('span');s.className='sw';s.textContent=p;f.appendChild(s)});c.replaceWith(f)}else split(c)})})(say);
+const sws=[...say.querySelectorAll('.sw')];
+
+/* ---------- rolagem ---------- */
+const prog=document.getElementById('prog');let ticking=false;
+function onScroll(){ticking=false;const max=document.documentElement.scrollHeight-innerHeight;prog.style.transform=`scaleX(${max>0?scrollY/max:0})`;
+  const r=say.getBoundingClientRect(),k=Math.max(0,Math.min(1,(innerHeight*.85-r.top)/(r.height+innerHeight*.35)));
+  const lit=Math.round(k*sws.length);sws.forEach((w,i)=>w.classList.toggle('lit',i<lit))}
+addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(onScroll)}},{passive:true});onScroll();
+
+/* ---------- cursor ---------- */
+if(fine){const cur=document.getElementById('cur'),ring=document.getElementById('curR');let x=innerWidth/2,y=innerHeight/2,rx=x,ry=y;
+  addEventListener('pointermove',e=>{x=e.clientX;y=e.clientY;cur.style.transform=`translate(${x}px,${y}px)`;
+    const t=e.target,paper=!!(t.closest&&t.closest('.services,.plans,.modal-box'));cur.classList.toggle('on-paper',paper);ring.classList.toggle('on-paper',paper);
+    ring.classList.toggle('big',!!(t.closest&&t.closest('a,button,summary,.svc,.crow-t span')))},{passive:true});
+  document.addEventListener('pointerleave',()=>{cur.style.opacity=ring.style.opacity=0});document.addEventListener('pointerenter',()=>{cur.style.opacity=ring.style.opacity=1});
+  (function loop(){rx+=(x-rx)*.16;ry+=(y-ry)*.16;ring.style.transform=`translate(${rx}px,${ry}px)`;requestAnimationFrame(loop)})()}
 
 /* ---------- modais ---------- */
 document.querySelectorAll('[data-modal]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();document.getElementById(a.dataset.modal).classList.add('open')}));
@@ -766,55 +936,79 @@ addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('.m
 (function(){
   const cv=document.getElementById('scene');
   if(!window.THREE){cv.style.background='radial-gradient(circle at 70% 45%,rgba(194,54,31,.35),transparent 50%)';return}
-  let R;try{R=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true})}catch(e){return}
-  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  R.setPixelRatio(Math.min(devicePixelRatio,2));
-  const S=new THREE.Scene(),C=new THREE.PerspectiveCamera(40,1,.1,100);C.position.set(0,0,9);
-  const G=new THREE.Group();S.add(G);
+  let R;try{R=new THREE.WebGLRenderer({canvas:cv,antialias:true,powerPreference:'high-performance'})}catch(e){return}
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,small=innerWidth<700;
+  R.setPixelRatio(Math.min(devicePixelRatio,small?1.75:2));
+  R.outputEncoding=THREE.sRGBEncoding;R.toneMapping=THREE.ACESFilmicToneMapping;R.toneMappingExposure=1.15;R.autoClear=false;
+  const lin=h=>new THREE.Color(h).convertSRGBToLinear();
 
-  // núcleo facetado (latão)
-  const core=new THREE.Mesh(new THREE.IcosahedronGeometry(1.35,0),new THREE.MeshStandardMaterial({color:0xC9A45C,metalness:.85,roughness:.28,flatShading:true}));
-  G.add(core);
-  const wire=new THREE.Mesh(new THREE.IcosahedronGeometry(1.75,1),new THREE.MeshBasicMaterial({color:0xC2361F,wireframe:true,transparent:true,opacity:.45}));
-  G.add(wire);
-  // anéis (armila)
-  const ringM=new THREE.MeshStandardMaterial({color:0xE3C98F,metalness:.9,roughness:.25});
-  const rings=[[2.5,.018,[Math.PI/2,0,0]],[2.85,.012,[Math.PI/3,Math.PI/5,0]],[3.25,.02,[-Math.PI/4,Math.PI/2.5,0]]].map(([r,t,rot])=>{
-    const m=new THREE.Mesh(new THREE.TorusGeometry(r,t,12,160),ringM);m.rotation.set(...rot);G.add(m);return m});
-  const bead=new THREE.Mesh(new THREE.SphereGeometry(.09,20,20),new THREE.MeshStandardMaterial({color:0xE0472D,emissive:0x7d1d0f,metalness:.3,roughness:.4}));G.add(bead);
-  // folhas de processo flutuando
-  const sheets=[];const sm=new THREE.MeshStandardMaterial({color:0xF2EDE3,metalness:0,roughness:.9,transparent:true,opacity:.16,side:THREE.DoubleSide});
-  for(let i=0;i<14;i++){const p=new THREE.Mesh(new THREE.PlaneGeometry(.7,.95),sm);const a=Math.random()*Math.PI*2,r=3.6+Math.random()*2.6;
-    p.position.set(Math.cos(a)*r,(Math.random()-.5)*5,Math.sin(a)*r-1.5);p.rotation.set(Math.random()*3,Math.random()*3,Math.random()*3);
-    p.userData={a,r,s:.04+Math.random()*.08,y:p.position.y,ph:Math.random()*6};S.add(p);sheets.push(p)}
-  // poeira
-  const N=700,pos=new Float32Array(N*3);for(let i=0;i<N;i++){pos[i*3]=(Math.random()-.5)*22;pos[i*3+1]=(Math.random()-.5)*14;pos[i*3+2]=(Math.random()-.5)*12-2}
-  const pg=new THREE.BufferGeometry();pg.setAttribute('position',new THREE.BufferAttribute(pos,3));
-  const dust=new THREE.Points(pg,new THREE.PointsMaterial({color:0xE3C98F,size:.025,transparent:true,opacity:.6}));S.add(dust);
-  // luz
-  S.add(new THREE.AmbientLight(0x404050,.9));
-  const k=new THREE.DirectionalLight(0xfff1dc,.95);k.position.set(4,5,6);S.add(k);
-  const rl=new THREE.PointLight(0xE0472D,2.2,14);rl.position.set(-3,-1,3);S.add(rl);
-  const bl=new THREE.PointLight(0x6d83ff,.6,14);bl.position.set(3,-3,-2);S.add(bl);
+  // fundo: mármore negro com veios de ouro
+  const bgS=new THREE.Scene(),bgC=new THREE.OrthographicCamera(-1,1,1,-1,0,1);
+  const U={t:{value:0},res:{value:new THREE.Vector2(1,1)},m:{value:new THREE.Vector2()},off:{value:small?.5:.68}};
+  bgS.add(new THREE.Mesh(new THREE.PlaneGeometry(2,2),new THREE.ShaderMaterial({uniforms:U,depthWrite:false,depthTest:false,
+    vertexShader:'varying vec2 vUv;void main(){vUv=uv;gl_Position=vec4(position.xy,0.,1.);}',
+    fragmentShader:`precision highp float;uniform float t,off;uniform vec2 res,m;varying vec2 vUv;
+float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
+float n(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(h(i),h(i+vec2(1,0)),f.x),mix(h(i+vec2(0,1)),h(i+vec2(1,1)),f.x),f.y);}
+float fbm(vec2 p){float v=0.,a=.5;mat2 r=mat2(.8,.6,-.6,.8);for(int i=0;i<6;i++){v+=a*n(p);p=r*p*2.03;a*=.5;}return v;}
+void main(){vec2 uv=vUv;vec2 p=(uv-.5)*vec2(res.x/res.y,1.)*1.8+m*.12;float tt=t*.035;
+vec2 q=vec2(fbm(p+vec2(0.,tt)),fbm(p+vec2(5.2,1.3)-tt));
+vec2 r=vec2(fbm(p+3.2*q+vec2(1.7,9.2)+tt*1.4),fbm(p+3.2*q+vec2(8.3,2.8)-tt));
+float f=fbm(p+2.6*r);
+float v1=pow(1.-abs(sin(f*9.+r.x*4.)),26.),v2=pow(1.-abs(sin(f*17.+q.y*6.)),40.)*.5;
+vec3 col=mix(vec3(.028,.03,.036),vec3(.085,.08,.085),smoothstep(.25,.95,f));
+col=mix(col,vec3(.12,.05,.04),smoothstep(.6,1.,r.y)*.55);
+vec3 gold=vec3(.86,.68,.37);col+=gold*(v1*.55+v2*.35)*smoothstep(.15,.75,length(q))*(.6+.4*sin(t*.4+f*6.));
+float vig=smoothstep(1.35,.15,length((uv-vec2(off,.5))*vec2(1.25,1.)));col*=.25+.75*vig;
+col+=(h(uv*res+t)-.5)*.012;gl_FragColor=vec4(col,1.);}`})));
+
+  // reflexos (estúdio)
+  const S=new THREE.Scene(),C=new THREE.PerspectiveCamera(40,1,.1,100);C.position.set(0,0,9);
+  const es=new THREE.Scene();es.background=new THREE.Color(0x020203);
+  const panel=(c,k,w,h,x,y,z)=>{const m=new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshBasicMaterial({color:lin(c).multiplyScalar(k),side:THREE.DoubleSide}));m.position.set(x,y,z);m.lookAt(0,0,0);es.add(m)};
+  panel(0xffd9a0,3.2,10,3,0,8,4);panel(0xffe6bf,2.2,2.5,9,-8,1,3);panel(0xE0472D,1.1,3,7,8,-1,1);panel(0x8fa0ff,.45,8,3,0,-7,-5);panel(0xffc970,1.6,6,6,2,2,-9);panel(0x3a2a14,1,20,20,0,0,10);
+  const pm=new THREE.PMREMGenerator(R);S.environment=pm.fromScene(es,.03).texture;pm.dispose();
+
+  const G=new THREE.Group();S.add(G);
+  const goldM=new THREE.MeshPhysicalMaterial({color:lin(0xD9A441),metalness:1,roughness:.2,clearcoat:.8,clearcoatRoughness:.12,flatShading:true,envMapIntensity:1.25});
+  const core=new THREE.Mesh(new THREE.IcosahedronGeometry(1.35,0),goldM);G.add(core);
+  const wire=new THREE.Mesh(new THREE.IcosahedronGeometry(1.8,1),new THREE.MeshBasicMaterial({color:lin(0xE0472D),wireframe:true,transparent:true,opacity:.35,blending:THREE.AdditiveBlending}));G.add(wire);
+  const ringM=new THREE.MeshPhysicalMaterial({color:lin(0xE6BD6E),metalness:1,roughness:.14,clearcoat:1,envMapIntensity:1.4});
+  const rings=[[2.5,.022,[Math.PI/2,0,0]],[2.85,.014,[Math.PI/3,Math.PI/5,0]],[3.25,.026,[-Math.PI/4,Math.PI/2.5,0]]].map(([r,t,rot])=>{
+    const m=new THREE.Mesh(new THREE.TorusGeometry(r,t,24,260),ringM);m.rotation.set(...rot);G.add(m);return m});
+  const bead=new THREE.Mesh(new THREE.SphereGeometry(.1,32,32),new THREE.MeshPhysicalMaterial({color:lin(0xE0472D),emissive:lin(0x8a1f0e),metalness:.2,roughness:.25,clearcoat:1}));G.add(bead);
+
+  // brilho suave
+  const dot=document.createElement('canvas');dot.width=dot.height=64;const g=dot.getContext('2d'),gr=g.createRadialGradient(32,32,0,32,32,32);
+  gr.addColorStop(0,'rgba(255,255,255,1)');gr.addColorStop(.3,'rgba(255,255,255,.45)');gr.addColorStop(1,'rgba(255,255,255,0)');g.fillStyle=gr;g.fillRect(0,0,64,64);
+  const tex=new THREE.CanvasTexture(dot);
+  const pts=(N,spread,size,op,col)=>{const pos=new Float32Array(N*3);for(let i=0;i<N;i++){pos[i*3]=(Math.random()-.5)*spread[0];pos[i*3+1]=(Math.random()-.5)*spread[1];pos[i*3+2]=(Math.random()-.5)*spread[2]-2}
+    const geo=new THREE.BufferGeometry();geo.setAttribute('position',new THREE.BufferAttribute(pos,3));
+    const p=new THREE.Points(geo,new THREE.PointsMaterial({color:lin(col),size,map:tex,transparent:true,opacity:op,depthWrite:false,blending:THREE.AdditiveBlending}));S.add(p);return p};
+  const dust=pts(small?500:1100,[22,14,12],.07,.75,0xF3DCA4),bokeh=pts(46,[18,11,8],.7,.16,0xE3C98F),ember=pts(60,[16,10,8],.12,.6,0xE0472D);
+  const halo=new THREE.Sprite(new THREE.SpriteMaterial({map:tex,color:lin(0xC9A45C),transparent:true,opacity:.22,depthWrite:false,blending:THREE.AdditiveBlending}));halo.scale.set(7,7,1);G.add(halo);
+
+  S.add(new THREE.AmbientLight(0x404050,.25));
+  const k=new THREE.DirectionalLight(0xfff1dc,1.4);k.position.set(4,5,6);S.add(k);
+  const rl=new THREE.PointLight(0xE0472D,3,14);rl.position.set(-3,-1,3);S.add(rl);
 
   let mx=0,my=0,tx=0,ty=0;
   addEventListener('pointermove',e=>{tx=e.clientX/innerWidth-.5;ty=e.clientY/innerHeight-.5},{passive:true});
   addEventListener('deviceorientation',e=>{if(e.gamma==null)return;tx=Math.max(-.5,Math.min(.5,e.gamma/60));ty=Math.max(-.5,Math.min(.5,(e.beta-45)/60))},{passive:true});
-  function size(){const w=cv.clientWidth,h=cv.clientHeight;R.setSize(w,h,false);C.aspect=w/h;C.updateProjectionMatrix();
-    const mob=w<700;G.position.set(mob?0:3.1,mob?2.6:0,0);G.scale.setScalar(mob?.5:.92)}
+  function size(){const w=cv.clientWidth,h=cv.clientHeight;R.setSize(w,h,false);C.aspect=w/h;C.updateProjectionMatrix();U.res.value.set(w,h);
+    const mob=w<700,hw=Math.tan(20*Math.PI/180)*9*C.aspect;U.off.value=mob?.5:.8;G.position.set(mob?hw*.55:hw*.72,mob?2.35:0,0);G.scale.setScalar(mob?.34:Math.min(.82,C.aspect*.5))}
   size();addEventListener('resize',size);
   let vis=true;new IntersectionObserver(([e])=>vis=e.isIntersecting).observe(cv);
   const clock=new THREE.Clock();
   function frame(){const t=clock.getElapsedTime();
-    mx+=(tx-mx)*.05;my+=(ty-my)*.05;
+    mx+=(tx-mx)*.05;my+=(ty-my)*.05;U.t.value=t;U.m.value.set(mx,-my);
     core.rotation.set(t*.18,t*.27,0);wire.rotation.set(-t*.1,-t*.14,t*.05);
     rings[0].rotation.z=t*.25;rings[1].rotation.z=-t*.18;rings[2].rotation.z=t*.12;
     const ba=t*.9;bead.position.set(Math.cos(ba)*2.5,0,Math.sin(ba)*2.5);
-    G.rotation.y=mx*.6;G.rotation.x=my*.4;
-    sheets.forEach(p=>{const u=p.userData;u.a+=u.s*.01;p.position.x=Math.cos(u.a)*u.r+(G.position.x*.5);p.position.z=Math.sin(u.a)*u.r-1.5;p.position.y=u.y+Math.sin(t*.5+u.ph)*.3;p.rotation.x+=.002;p.rotation.y+=.003});
-    dust.rotation.y=t*.01;
+    G.rotation.y=mx*.6;G.rotation.x=my*.4;halo.material.opacity=.18+Math.sin(t*1.2)*.05;
+    dust.rotation.y=t*.012;bokeh.rotation.y=-t*.006;ember.rotation.y=t*.02;ember.position.y=Math.sin(t*.3)*.3;
     C.position.x=mx*.8;C.position.y=-my*.5;C.lookAt(G.position.x*.4,0,0);
-    R.render(S,C)}
+    R.clear();R.render(bgS,bgC);R.render(S,C)}
   if(reduce){frame();return}
   (function loop(){requestAnimationFrame(loop);if(vis&&!document.hidden)frame()})();
 })();

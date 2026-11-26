@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /estudio/
+
+Sitemap: https://marcolimaaf.github.io/ZELO/sitemap.xml
